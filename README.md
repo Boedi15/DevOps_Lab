@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Prerequisites
 #
 - JDK 17 or 21
@@ -23,3 +24,7 @@ sql dump file:
 - > mysql -u <user_name> -p accounts < db_backup.sql
 
 
+=======
+# DevOps_Lab-Manual
+Lab manual
+>>>>>>> ac69dddb57c91849bb3784bc2248839a836f2d87
