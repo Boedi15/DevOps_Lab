@@ -1,0 +1,171 @@
+Vagrant.configure("2") do |config|
+  config.hostmanager.enabled = true 
+  config.hostmanager.manage_host = true
+  
+  ### DB vm ####
+  config.vm.define "db01" do |db01|
+    db01.vm.box = "centos/stream9"
+    db01.vm.hostname = "db01"
+    db01.vm.network "private_network", ip: "192.168.56.15"
+    db01.vm.provider "virtualbox" do |vb|
+      vb.memory = "600"
+    end
+  end
+
+  ### Memcache vm #### 
+  config.vm.define "mc01" do |mc01|
+    mc01.vm.box = "centos/stream9"
+    mc01.vm.hostname = "mc01"
+    mc01.vm.network "private_network", ip: "192.168.56.14"
+    mc01.vm.provider "virtualbox" do |vb|
+      vb.memory = "600"
+    end
+  end
+  
+  ### RabbitMQ vm ####
+  config.vm.define "rmq01" do |rmq01|
+    rmq01.vm.box = "centos/stream9"
+    rmq01.vm.hostname = "rmq01"
+    rmq01.vm.network "private_network", ip: "192.168.56.13"
+    rmq01.vm.provider "virtualbox" do |vb|
+      vb.memory = "600"
+    end
+  end
+
+  ### Tomcat vm ###
+  config.vm.define "app01" do |app01|
+    app01.vm.box = "centos/stream9"
+    app01.vm.hostname = "app01"
+    app01.vm.network "private_network", ip: "192.168.56.12"
+    app01.vm.provider "virtualbox" do |vb|
+      vb.memory = "800"
+    end
+  end
+
+  ### Nginx vm ###
+  config.vm.define "web01" do |web01|
+    web01.vm.box = "ubuntu/jammy64"
+    web01.vm.hostname = "web01"
+    web01.vm.network "private_network", ip: "192.168.56.11"
+    web01.vm.provider "virtualbox" do |vb|
+      vb.memory = "800"
+    end
+  end
+
+  ### Git vm ###
+  config.vm.define "git01" do |git01|
+    git01.vm.box = "centos/stream9"
+    git01.vm.hostname = "git01"
+    git01.vm.network "private_network", ip: "192.168.56.16"
+    git01.vm.provider "virtualbox" do |vb|
+      vb.memory = "600"
+    end
+    git01.vm.provision "shell", inline: <<-SHELL
+      sudo dnf install -y git
+    SHELL
+  end
+
+  ### Jenkins vm ###
+  config.vm.define "jenkins01" do |jenkins01|
+    jenkins01.vm.box = "centos/stream9"
+    jenkins01.vm.hostname = "jenkins01"
+    jenkins01.vm.network "private_network", ip: "192.168.56.17"
+    jenkins01.vm.provider "virtualbox" do |vb|
+      vb.memory = "800"
+    end
+    jenkins01.vm.provision "shell", inline: <<-SHELL
+      sudo dnf install -y java-11-openjdk
+      sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
+      sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
+      sudo dnf install -y jenkins
+      sudo systemctl enable jenkins
+      sudo systemctl start jenkins
+    SHELL
+  end
+
+  ### Docker vm ###
+  config.vm.define "docker01" do |docker01|
+    docker01.vm.box = "ubuntu/focal64"
+    docker01.vm.hostname = "docker01"
+    docker01.vm.network "private_network", ip: "192.168.56.18"
+    docker01.vm.provider "virtualbox" do |vb|
+      vb.memory = "800"
+    end
+    docker01.vm.provision "shell", inline: <<-SHELL
+      sudo apt-get update
+      sudo apt-get install ca-certificates curl gnupg -y
+      sudo install -m 0755 -d /etc/apt/keyrings
+      curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+      sudo chmod a+r /etc/apt/keyrings/docker.gpg
+      echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+      sudo apt-get update
+      sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+    SHELL
+  end
+
+  ### Kubernetes Master VM ###
+  config.vm.define "k8s-master" do |k8s_master|
+    k8s_master.vm.box = "ubuntu/jammy64"
+    k8s_master.vm.hostname = "k8s-master"
+    k8s_master.vm.network "private_network", ip: "192.168.56.20"
+    k8s_master.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+    end
+k8s_master.vm.provision "shell", inline: <<-SHELL
+  # Update and install dependencies for Kubernetes
+  sudo apt-get update
+  sudo apt-get install -y apt-transport-https ca-certificates curl
+  
+  # Add the official Kubernetes APT repository
+  sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+  sudo echo "deb https://apt.kubernetes.io/ kubernetes-$(lsb_release -c | awk '{print $2}') main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+  # Update apt and install Kubernetes packages
+  sudo apt-get update
+  sudo apt-get install -y kubelet kubeadm kubectl
+  sudo apt-mark hold kubelet kubeadm kubectl
+
+  # Initialize Kubernetes master node
+  sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+
+  # Set up kubeconfig for the vagrant user
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+  # Install Calico network plugin (optional)
+  kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+SHELL
+
+  end
+
+  ### Kubernetes Worker VM ###
+  config.vm.define "k8s-worker" do |k8s_worker|
+    k8s_worker.vm.box = "ubuntu/jammy64"
+    k8s_worker.vm.hostname = "k8s-worker"
+    k8s_worker.vm.network "private_network", ip: "192.168.56.21"
+    k8s_worker.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+    end
+    k8s_worker.vm.provision "shell", inline: <<-SHELL
+    # Update and install dependencies for Kubernetes
+    sudo apt-get update
+    sudo apt-get install -y apt-transport-https ca-certificates curl
+
+    # Add Kubernetes repository key
+    sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+
+    # Add the Kubernetes repository (updated to latest Kubernetes release URL)
+    echo "deb https://apt.kubernetes.io/ kubernetes-1.23 main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+    # Update package list and install Kubernetes components
+    sudo apt-get update
+    sudo apt-get install -y kubelet kubeadm kubectl
+    sudo apt-mark hold kubelet kubeadm kubectl
+
+    # Join the worker node to the Kubernetes cluster
+    # Replace <your-token> and <your-ca-hash> with actual values
+    sudo kubeadm join 192.168.56.20:6443 --token YOUR_ACTUAL_TOKEN --discovery-token-ca-cert-hash sha256:YOUR_ACTUAL_CA_HASH
+  SHELL
+  end
+end
