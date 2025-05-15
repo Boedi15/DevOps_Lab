@@ -1,1 +1,1 @@
-{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/home/boedi/DevOps/lab-mnl/vagrant/Manual_provisioning","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/home/boedi/DevOps/LAB/vagrant/Manual_provisioning","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
