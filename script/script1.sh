@@ -16,7 +16,9 @@ sudo apt update && sudo apt upgrade -y
 
 # === 2. Cek Koneksi Internet ===
 echo
+echo "###########################"
 echo "Menguji koneksi internet..."
+echo "###########################"
 ping -c 2 google.com > /dev/null 2>&1
 if [ $? -eq 0 ]; then
     echo "✔️ Internet aktif."
@@ -26,7 +28,9 @@ fi
 
 # === 3. Cek Penggunaan Disk ===
 echo
+echo "################"
 echo "Penggunaan disk:"
+echo "################"
 df -h /
 
 # === 4. Cek Status Baterai ===
@@ -38,11 +42,6 @@ else
     echo
     echo "acpi tidak ditemukan. Melewati pengecekan baterai."
 fi
-
-# === 5. Menjalankan Aplikasi Favorit ===
-echo
-echo "Membuka aplikasi harian..."
-nohup firefox &> /dev/null
 
 echo
 echo "✅ Semua tugas awal selesai. Selamat bekerja!"
