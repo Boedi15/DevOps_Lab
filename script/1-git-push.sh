@@ -1,28 +1,13 @@
 #!/bin/bash
 
-# Script otomatis push ke Git remote
-
-# Cek jika user memberi pesan commit
-if [ -z "$1" ]; then
-    echo "❌ Error: Harap masukkan pesan commit!"
-    echo "Contoh: ./git-push.sh \"update konfigurasi CI/CD\""
-    exit 1
-fi
-
-COMMIT_MESSAGE="$1"
-
-# Tambahkan semua perubahan
 echo "🔍 Menambahkan perubahan..."
 git add .
 
-# Commit dengan pesan
-echo "📝 Commit: $COMMIT_MESSAGE"
-git commit -m "$COMMIT_MESSAGE"
+commit_msg=$1
+echo "📝 Commit: $commit_msg"
+git commit -m "$commit_msg"
 
-# Push ke remote
 echo "🚀 Push ke remote (origin)..."
-git branch -M main
-git push -u origin main "$(git branch --show-current)"
-
+git push origin main  # HANYA ini, jangan dobel
 echo "✅ Push selesai!"
 
