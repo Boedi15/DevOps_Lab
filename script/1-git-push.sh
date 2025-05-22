@@ -21,7 +21,8 @@ git commit -m "$COMMIT_MESSAGE"
 
 # Push ke remote
 echo "🚀 Push ke remote (origin)..."
-git push origin "$(git branch --show-current)"
+git branch -M main
+git push -u origin main "$(git branch --show-current)"
 
 echo "✅ Push selesai!"
 
