@@ -1,0 +1,33 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "ubuntu/jammy64"
+
+  nodes = [
+    { name: "devops-master", ip: "192.168.56.10", ram: 4096, cpu: 2, script: "setup-devops-master.sh" },
+    { name: "agent-node1", ip: "192.168.56.11", ram: 2048, cpu: 2, script: "setup-agent-node.sh" },
+    { name: "agent-node2", ip: "192.168.56.12", ram: 2048, cpu: 2, script: "setup-agent-node.sh" },
+    { name: "monitoring", ip: "192.168.56.13", ram: 2048, cpu: 1, script: "setup-monitoring.sh" },
+    { name: "reverse-proxy", ip: "192.168.56.14", ram: 1024, cpu: 1, script: "setup-reverse-proxy.sh" }
+  ]
+
+  nodes.each do |node|
+    config.vm.define node[:name] do |n|
+      n.vm.hostname = node[:name]
+      n.vm.network "private_network", ip: node[:ip]
+
+      # Optional: Shared folder between host and guest
+      n.vm.synced_folder ".", "/vagrant", disabled: true
+      n.vm.synced_folder "../shared", "/home/vagrant/shared", create: true
+
+      n.vm.provider "virtualbox" do |vb|
+        vb.name = node[:name]
+        vb.memory = node[:ram]
+        vb.cpus = node[:cpu]
+      end
+
+      n.vm.provision "shell", path: "provision/#{node[:script]}"
+    end
+  end
+end
+
