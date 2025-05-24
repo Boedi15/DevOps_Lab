@@ -1,4 +1,6 @@
 #!/bin/bash
+echo "Cek Perubahan pada git"
+git status
 
 echo "🔍 Menambahkan perubahan..."
 git add .
