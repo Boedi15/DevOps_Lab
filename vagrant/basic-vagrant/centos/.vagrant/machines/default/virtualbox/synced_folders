@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/home/boedi/DevOps/LAB/vagrant/basic-vagrant/centos","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
