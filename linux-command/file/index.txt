@@ -1,0 +1,7 @@
+budi login
+budi logout
+httpd offline
+httpd online
+systemctl start
+sytemctl stop
+sytemctl enable

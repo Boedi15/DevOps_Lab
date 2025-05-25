@@ -1,0 +1,13 @@
+# data_latihan.txt
+
+001, Budi Pratama, budi.pra@example.com, 2000-05-17, Teknik Informatika, aktif
+002, Sari Wulandari, sariwu@gmail.com, 1999-12-01, Sistem Informasi, cuti
+003, Joko Widodo, joko_w@example.net, 1998-08-21, Teknik Elektro, aktif
+004, Lina Marlina, lina.marlina@mail.com, 2001-03-14, Manajemen, lulus
+005, Dede Surya, dede_s@example.org, 2002-11-09, Teknik Informatika, aktif
+006, Tika Rosita, tika.rst@gmail.com, 1999-06-30, Ilmu Komputer, aktif
+007, Arif Rahman, arif.rahman@kampus.id, 1997-01-25, Sistem Informasi, DO
+008, Dwi Cahyo, dwi_c@domain.co.id, 2001-07-22, Teknik Mesin, aktif
+009, Mega Putri, mega.pt@example.com, 2000-02-17, Teknik Sipil, cuti
+010, Rangga Wijaya, rangga.wijaya@mail.org, 1998-10-04, Teknik Informatika, lulus
+
