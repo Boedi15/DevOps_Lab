@@ -1,0 +1,10 @@
+acces.log
+bigdata.txt
+cp_file.txt
+file.txt
+free-m.txt
+index.txt
+lat.txt
+ls.txt
+os.txt
+passwd.txt

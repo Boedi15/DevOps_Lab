@@ -1,0 +1,17 @@
+########################
+Rab 28 Mei 2025 19:37:46 WIB
+#######################
+ 19:38:30 up 56 min,  1 user,  load average: 0,21, 0,24, 0,17
+
+               total        used        free      shared  buff/cache   available
+Mem:            30Gi       2,7Gi        25Gi       129Mi       2,5Gi        27Gi
+Swap:          7,6Gi          0B       7,6Gi
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           3,1G  2,5M  3,1G   1% /run
+/dev/nvme0n1p6  183G   20G  154G  12% /
+tmpfs            16G   81M   16G   1% /dev/shm
+tmpfs           5,0M   16K  5,0M   1% /run/lock
+efivarfs        154K   47K  103K  32% /sys/firmware/efi/efivars
+/dev/nvme0n1p7   78G   26G   49G  35% /home
+/dev/nvme0n1p1   96M   37M   60M  39% /boot/efi
+tmpfs           3,1G  132K  3,1G   1% /run/user/1000
