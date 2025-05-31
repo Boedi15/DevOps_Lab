@@ -1,0 +1,20 @@
+2025-05-31 13:01:05 [INFO] [user=admin] Connected to database `sales_db`
+2025-05-31 13:01:06 [QUERY] [user=admin] SELECT * FROM customers WHERE country='US';
+2025-05-31 13:01:10 [INFO] [user=guest] Failed login attempt to `inventory_db`
+2025-05-31 13:01:11 [ERROR] [user=guest] Access denied for user 'guest'@'192.168.1.50'
+2025-05-31 13:01:15 [QUERY] [user=reporting] SELECT COUNT(*) FROM orders WHERE order_date > '2025-01-01';
+2025-05-31 13:01:20 [INFO] [user=admin] Disconnected from `sales_db`
+2025-05-31 13:02:01 [QUERY] [user=analytics] SELECT AVG(price) FROM products;
+2025-05-31 13:02:15 [QUERY] [user=admin] UPDATE customers SET email='new@example.com' WHERE id=101;
+2025-05-31 13:02:20 [ERROR] [user=analytics] Syntax error at or near "FROM"
+2025-05-31 13:02:25 [QUERY] [user=admin] DELETE FROM sessions WHERE last_access < '2025-01-01';
+2025-05-31 13:02:30 [INFO] [user=guest] Connected to database `helpdesk_db`
+2025-05-31 13:02:35 [QUERY] [user=guest] SELECT * FROM tickets WHERE status='open';
+2025-05-31 13:02:40 [INFO] [user=guest] Disconnected from `helpdesk_db`
+2025-05-31 13:03:01 [QUERY] [user=admin] INSERT INTO logs (message, level) VALUES ('test', 'info');
+2025-05-31 13:03:05 [QUERY] [user=reporting] SELECT * FROM revenue WHERE region='APAC';
+2025-05-31 13:03:10 [ERROR] [user=reporting] Connection timeout while accessing `report_db`
+2025-05-31 13:03:20 [QUERY] [user=admin] SELECT * FROM users WHERE last_login < '2024-12-01';
+2025-05-31 13:03:25 [INFO] [user=analytics] Connected to database `metrics_db`
+2025-05-31 13:03:30 [QUERY] [user=analytics] SELECT MAX(views) FROM page_stats;
+2025-05-31 13:03:40 [INFO] [user=analytics] Disconnected from `metrics_db`

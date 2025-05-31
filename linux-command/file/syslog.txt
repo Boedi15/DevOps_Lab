@@ -1,0 +1,6 @@
+May 31 13:00:01 localhost systemd[1]: Started Session 1 of user root.
+May 31 13:00:02 localhost CRON[3025]: pam_unix(cron:session): session opened for user root
+May 31 13:00:03 localhost kernel: [   15.432001] eth0: link up
+May 31 13:00:04 localhost sshd[3100]: Accepted password for admin from 192.168.1.10 port 55222 ssh2
+May 31 13:00:05 localhost sudo:    admin : TTY=pts/1 ; PWD=/home/admin ; USER=root ; COMMAND=/bin/ls
+May 31 13:00:06 localhost systemd[1]: Stopping Network Manager...

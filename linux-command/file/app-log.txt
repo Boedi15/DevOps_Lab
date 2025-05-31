@@ -1,0 +1,5 @@
+2025-05-31 13:10:00 [INFO] User `john` logged in
+2025-05-31 13:10:05 [WARN] Disk space low: 92% used
+2025-05-31 13:10:10 [ERROR] Failed to process payment for user `alice`
+2025-05-31 13:10:15 [DEBUG] Session token refreshed for `john`
+2025-05-31 13:10:20 [INFO] User `alice` logged out

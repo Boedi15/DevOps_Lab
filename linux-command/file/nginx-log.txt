@@ -1,0 +1,6 @@
+192.168.1.10 - - [31/May/2025:13:15:22 +0000] "GET /index.html HTTP/1.1" 200 1024 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+192.168.1.11 - - [31/May/2025:13:16:10 +0000] "POST /login HTTP/1.1" 302 512 "http://example.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
+192.168.1.12 - - [31/May/2025:13:17:01 +0000] "GET /dashboard HTTP/1.1" 403 2048 "-" "curl/7.58.0"
+192.168.1.13 - - [31/May/2025:13:18:35 +0000] "GET /admin HTTP/1.1" 404 512 "-" "Mozilla/5.0 (Linux; Android 9)"
+192.168.1.14 - - [31/May/2025:13:19:22 +0000] "GET /style.css HTTP/1.1" 200 1024 "-" "Mozilla/5.0 (Windows NT 6.1; Win64; x64)"
+192.168.1.10 - - [31/May/2025:13:20:12 +0000] "GET /images/logo.png HTTP/1.1" 200 20480 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
