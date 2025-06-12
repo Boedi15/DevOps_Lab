@@ -1,1 +1,1 @@
-{"name":"Guanglin/alphine","version":"0.1.0","provider":"virtualbox","directory":"boxes/Guanglin-VAGRANTSLASH-alphine/0.1.0/virtualbox"}
+{"name":"generic/alpine318","version":"4.3.12","provider":"virtualbox","directory":"boxes/generic-VAGRANTSLASH-alpine318/4.3.12/amd64/virtualbox"}
