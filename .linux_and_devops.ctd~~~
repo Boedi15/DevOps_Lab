@@ -88,26 +88,26 @@
       </node>
     </node>
     <node unique_id="2021" master_id="0" name="04 - Version Control &amp; CI (Git, Maven, Jenkins)" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="222" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0">
-      <node unique_id="2022" master_id="0" name="Git &amp; GitHub Basics" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
-      <node unique_id="2023" master_id="0" name="Maven for Java builds" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
-      <node unique_id="2024" master_id="0" name="CI Fundamentals" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
-      <node unique_id="2025" master_id="0" name="Jenkins as Build Server" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
-      <node unique_id="2026" master_id="0" name="Jobs / Build-Test-Deploy" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
-      <node unique_id="2027" master_id="0" name="Master/Slave, Nexus, SonarQube" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
-      <node unique_id="2028" master_id="0" name="Jenkins Pipelines" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
-      <node unique_id="2029" master_id="0" name="Project: Jenkins + Nexus + SonarQube + Slack CI" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
+      <node unique_id="2022" master_id="0" name="Git &amp; GitHub Basics" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
+      <node unique_id="2023" master_id="0" name="Maven for Java builds" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
+      <node unique_id="2024" master_id="0" name="CI Fundamentals" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
+      <node unique_id="2025" master_id="0" name="Jenkins as Build Server" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
+      <node unique_id="2026" master_id="0" name="Jobs / Build-Test-Deploy" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
+      <node unique_id="2027" master_id="0" name="Master/Slave, Nexus, SonarQube" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
+      <node unique_id="2028" master_id="0" name="Jenkins Pipelines" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
+      <node unique_id="2029" master_id="0" name="Project: Jenkins + Nexus + SonarQube + Slack CI" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
     </node>
     <node unique_id="2030" master_id="0" name="05 - Python Scripting" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="23" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0">
-      <node unique_id="2031" master_id="0" name="Python Basics (vars, loops, funcs)" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
-      <node unique_id="2032" master_id="0" name="OS Automation w/ Python" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
+      <node unique_id="2031" master_id="0" name="Python Basics (vars, loops, funcs)" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
+      <node unique_id="2032" master_id="0" name="OS Automation w/ Python" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
     </node>
     <node unique_id="2033" master_id="0" name="06 - Ansible" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="134" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0">
-      <node unique_id="2034" master_id="0" name="Ad‑hoc cmds &amp; modules" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
-      <node unique_id="2035" master_id="0" name="YAML fundamentals" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
-      <node unique_id="2036" master_id="0" name="Playbooks: vars, loops, handlers, templates" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
-      <node unique_id="2037" master_id="0" name="Roles &amp; deep variable dive" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
-      <node unique_id="2038" master_id="0" name="Ansible on AWS" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
-      <node unique_id="2039" master_id="0" name="Project: Jenkins + Ansible for CD &amp; Config Mgmt" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
+      <node unique_id="2034" master_id="0" name="Ad‑hoc cmds &amp; modules" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
+      <node unique_id="2035" master_id="0" name="YAML fundamentals" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
+      <node unique_id="2036" master_id="0" name="Playbooks: vars, loops, handlers, templates" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
+      <node unique_id="2037" master_id="0" name="Roles &amp; deep variable dive" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
+      <node unique_id="2038" master_id="0" name="Ansible on AWS" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
+      <node unique_id="2039" master_id="0" name="Project: Jenkins + Ansible for CD &amp; Config Mgmt" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
     </node>
     <node unique_id="2040" master_id="0" name="07 - AWS Part 2" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="135" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0">
       <node unique_id="2041" master_id="0" name="VPC in-depth" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
