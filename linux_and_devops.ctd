@@ -3,8 +3,164 @@
   <bookmarks list=""/>
   <node unique_id="1" master_id="0" name="Linux Training Notes" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="115" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0">
     <node unique_id="2" master_id="0" name="01 - Basic Linux Command Line" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="22" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0">
-      <node unique_id="3" master_id="0" name="Navigasi File &amp; Folder (cd, ls, pwd)" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
-      <node unique_id="4" master_id="0" name="Manipulasi File (cp, mv, rm, touch)" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
+      <node unique_id="3" master_id="0" name="Navigasi File &amp; Folder (cd, ls, pwd)" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="1750253490">
+        <rich_text justification="center" underline="single" scale="h1" weight="heavy">NAVIGASI FILE</rich_text>
+        <rich_text>
+
+</rich_text>
+        <rich_text underline="single" foreground="#df08d5" weight="heavy">Command pwd</rich_text>
+        <rich_text>
+	digunakan untuk melihat di direktori mana kita berada
+	contoh :
+</rich_text>
+        <rich_text indent="1" foreground="#f9f06b">[vagrant@vbox ~]$ pwd</rich_text>
+        <rich_text indent="1">
+/home/vagrant</rich_text>
+        <rich_text>							</rich_text>
+        <rich_text foreground="#26a269">=&gt; posisi direktori berada di /home/vagrant</rich_text>
+        <rich_text>
+
+</rich_text>
+        <rich_text underline="single" foreground="#df08d5" weight="heavy">Command cd</rich_text>
+        <rich_text>
+	digunakan untuk berpindah direktori contoh dari direktori home ke direktori root dsb.
+		Contoh
+</rich_text>
+        <rich_text indent="1" foreground="#f9f06b">[vagrant@vbox ~]$ pwd</rich_text>
+        <rich_text indent="1">
+/home/vagrant							</rich_text>
+        <rich_text indent="1" foreground="#26a269">=&gt; posisi awal berada di direktori vagrant/</rich_text>
+        <rich_text indent="1">
+</rich_text>
+        <rich_text indent="1" foreground="#f9f06b">[vagrant@vbox ~]$ cd /		</rich_text>
+        <rich_text indent="1">		</rich_text>
+        <rich_text indent="1" foreground="#26a269">=&gt; command cd untuk berpindah ke direkroti root /</rich_text>
+        <rich_text indent="1">
+</rich_text>
+        <rich_text indent="1" foreground="#f9f06b">[vagrant@vbox /]$ pwd</rich_text>
+        <rich_text indent="1">
+/													</rich_text>
+        <rich_text indent="1" foreground="#26a269">=&gt; direktori saat ini berada di direktori root /</rich_text>
+        <rich_text indent="1">
+</rich_text>
+        <rich_text>
+</rich_text>
+        <rich_text underline="single" foreground="#df08d5" weight="heavy">Command ls</rich_text>
+        <rich_text>
+	digunakan untuk menampilkan isi dari sebuah direktori/folder
+		Option &amp; contoh :
+			ls -l		: tampilkan dalam format panjang (permission, owner, size, dll)
+					</rich_text>
+        <rich_text foreground="#f9f06b">[vagrant@vbox home]$ ls -l</rich_text>
+        <rich_text>
+					drwx------. 4 vagrant vagrant 4096 Jun 17 11:59 vagrant
+
+			ls -a		: tampilkan seluruh file termasuk file yang disembunyikan (. diawal)
+				</rich_text>
+        <rich_text foreground="#f9f06b">	[vagrant@vbox ~]$ ls -a</rich_text>
+        <rich_text>
+					.  ..  .bash_history  .bash_logout  .bash_profile  .bashrc  .config  .lesshst  .ssh  .viminfo
+			
+			ls -R		: tampilkan isi dari direktori dan sub direktori (recursive)
+				</rich_text>
+        <rich_text foreground="#f9f06b">	[vagrant@vbox home]$ ls -R</rich_text>
+        <rich_text>
+					.:
+					vagrant
+					./vagrant:
+
+			ls -li		: tampilkan info lengkap dan inode number
+					</rich_text>
+        <rich_text foreground="#f9f06b">[vagrant@vbox home]$ ls -li</rich_text>
+        <rich_text>
+					262461 drwx------. 4 vagrant vagrant 4096 Jun 17 11:59 vagrant		</rich_text>
+        <rich_text foreground="#26a269">=&gt; 262461 &gt; inode number</rich_text>
+        <rich_text>
+
+			ls -ln	: tampilkan info lenkap namun untuk UID dan GID di tampilkan dalam bentuk angka bukan nama
+				</rich_text>
+        <rich_text foreground="#f9f06b">	[vagrant@vbox home]$ ls -ln</rich_text>
+        <rich_text>
+					drwx------. 4 1000 1000 4096 Jun 17 11:59 vagrant			</rich_text>
+        <rich_text foreground="#26a269">=&gt; UID 1000 dan GID 1000</rich_text>
+        <rich_text>
+
+			ls -ltr	: tampilkan info lengkap urut berdasarkan waktu modifikasi (paling baru di atas) jadi yang paling lama di atas dan yang paling baru di bawah
+					</rich_text>
+        <rich_text foreground="#f9f06b">vagrant@vbox etc]$ ls -ltr		</rich_text>
+        <rich_text>											</rich_text>
+        <rich_text foreground="#26a269">=&gt; contoh file atau direktori pada direktori /etc/</rich_text>
+        <rich_text>
+					-rw-r--r--. 1 root root     67454 Apr 22  2020 mime.types
+					-rw-r--r--. 1 root root      272 Apr 22  2020 mailcap
+					-rw-r--r--. 1 root root      496 Jun  7  2020 logrotate.conf
+					-rw-r--r--. 1 root root       44 Jun 23  2020 shells
+					-rw-r--r--. 1 root root   692252 Jun 23  2020 services
+					-rw-r--r--. 1 root root       58 Jun 23  2020 networks
+
+			ls -lah	: tampilkan info lengkap menampilkan semua file termasuk file yang di hiden beserta sizenya dalam KB, MB atau GB
+					</rich_text>
+        <rich_text foreground="#f9f06b">[vagrant@vbox ~]$ ls -lah</rich_text>
+        <rich_text>
+					drwx------. 4 vagrant vagrant 4.0K Jun 17 11:59 .
+					drwxr-xr-x. 3 root    root    4.0K Jun 17 13:27 ..
+					-rw-------. 1 vagrant vagrant 2.0K Jun 18 13:01 .bash_history
+					-rw-r--r--. 1 vagrant vagrant   18 Feb 15  2024 .bash_logout
+					-rw-r--r--. 1 vagrant vagrant  141 Feb 15  2024 .bash_profile
+
+</rich_text>
+        <rich_text underline="single" foreground="#df08d5" weight="heavy">Command file</rich_text>
+        <rich_text>
+	digunakan untuk melihat type file
+		Contoh :
+					</rich_text>
+        <rich_text foreground="#f9f06b">[vagrant@vbox vagrant]$ ls</rich_text>
+        <rich_text>
+					Vagrantfile									</rich_text>
+        <rich_text foreground="#26a269">=&gt; file yang dicek menggunakan command file</rich_text>
+        <rich_text>
+					</rich_text>
+        <rich_text foreground="#f9f06b">[vagrant@vbox vagrant]$ file Vagrantfile </rich_text>
+        <rich_text>
+					Vagrantfile: ASCII text
+
+</rich_text>
+        <rich_text underline="single" foreground="#df08d5" weight="heavy">Command du</rich_text>
+        <rich_text>
+	digunakan untuk disk usage
+		Contoh :
+					</rich_text>
+        <rich_text foreground="#f9f06b">[vagrant@vbox ~]$ du</rich_text>
+        <rich_text>
+					4	./.config/procps
+					8	./.config
+					8	./.ssh
+					44	.
+
+</rich_text>
+        <rich_text underline="single" foreground="#df08d5" weight="heavy">Command d</rich_text>
+        <rich_text foreground="#df08d5">f</rich_text>
+        <rich_text>
+	digunakan untuk mengcek disk free
+		Contoh :
+				</rich_text>
+        <rich_text foreground="#f9f06b">[vagrant@vbox ~]$ df -h</rich_text>
+        <rich_text>				</rich_text>
+        <rich_text foreground="#26a269">=&gt; perintah disk free dengan parameter human atau size file yang dapat di baca manusia seperti Kb, Mb dan Gb</rich_text>
+        <rich_text>
+				Filesystem      Size  Used Avail Use% Mounted on
+				devtmpfs        4.0M     0  4.0M   0% /dev
+				tmpfs           854M     0  854M   0% /dev/shm
+				tmpfs           342M  4.7M  337M   2% /run
+				/dev/sda1       9.8G  3.6G  5.7G  39% /
+				tmpfs           171M     0  171M   0% /run/user/1000
+</rich_text>
+      </node>
+      <node unique_id="4" master_id="0" name="Manipulasi File (cp, mv, rm, touch)" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="1750253570">
+        <rich_text justification="center" underline="single" scale="h1" weight="heavy">MANIPULASI FILE</rich_text>
+        <rich_text>
+</rich_text>
+      </node>
       <node unique_id="5" master_id="0" name="Pengelolaan File Text (cat, less, more, head, tail)" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
       <node unique_id="6" master_id="0" name="Pencarian (find, locate, grep)" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
       <node unique_id="7" master_id="0" name="Shortcut &amp; Wildcard (*, ?, tab completion)" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
