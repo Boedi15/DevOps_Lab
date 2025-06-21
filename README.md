@@ -1,12 +1,16 @@
 # 🚀 DevOps_Lab
 
-Selamat datang di **DevOps_Lab** — catatan perjalanan saya, **Boedi**, dalam belajar dan mendalami dunia **DevOps** dari nol hingga mahir.
+Selamat datang di **DevOps_Lab** — catatan perjalanan saya, **Boedi**, dalam belajar dan mendalami dunia **SysOps dan DevOps** dari nol hingga mahir.
 
-Repo ini berisi hasil latihan, proyek mini, eksperimen, dan dokumentasi selama saya mengikuti kursus DevOps *Beginner to Advanced* oleh **Imran Teli** di Udemy, serta eksplorasi pribadi lainnya.
+Repo ini berisi hasil latihan, proyek mini, eksperimen, dan dokumentasi selama saya mengikuti 3 kursus kursus, yaitu :
+- Complete Linux Training Course to Get Your Dream IT Job 2025 di Udemy
+- DevOps *Beginner to Advanced* oleh **Imran Teli** di Udemy
+- GitLab CI/CD: Pipelines, CI/CD and DevOps for Beginners
 
 ---
+## 📚 Apa Saja yang Sudah Saya Pelajari pada kursus evOps Complete Linux Training Course to Get Your Dream IT Job 2025 di Udemy :
 
-## 📚 Apa Saja yang Sudah Saya Pelajari?
+## 📚 Apa Saja yang Sudah Saya Pelajari pada kursus DevOps Beginners to Advanced with Projects di Udemy :
 
 ### ✅ Dasar-Dasar DevOps
 - Pengertian DevOps dan konsep CI/CD
@@ -63,13 +67,15 @@ Ini bukan repo expert. Ini adalah *laboratorium belajar*. Kalau ada kekurangan, 
 
 ## 🙋‍♂️ Tentang Saya
 
-Saya **Boedi**, IT Support yang sedang serius pindah jalur ke **DevOps**. Saya menyukai pembelajaran yang terstruktur, praktikal, dan mudah dimengerti (dengan analogi kalau bisa 😄). Harapan saya, repo ini jadi jejak digital saya selama proses belajar — dan siapa tahu bisa bantu orang lain juga!
+Saya **Boedi**, IT Support yang sedang serius pindah jalur dengan membuat pondai yang kuat dengan belajar SysOps untuk selanjutnya melangkah ke **DevOps**. Saya menyukai pembelajaran yang terstruktur, praktikal, dan mudah dimengerti (dengan analogi kalau bisa 😄). Harapan saya, repo ini jadi jejak digital saya selama proses belajar — dan siapa tahu bisa bantu orang lain juga!
 
 ---
 
 ## 🧠 Quote Motivasi
 
 > _"Belajar DevOps bukan sprint. Ini marathon. Tapi tenang, bahkan marathon dimulai dari langkah pertama."_ 💪
+> "Bukan telat, cuma pemanasan lebih lama. Sekarang waktunya lari kencang — dari support ke DevOps."
+> "38 tahun dan baru belajar DevOps? Ya, biar kalau nanti disuruh deploy ke production, jantung udah cukup kuat buat ngadepin drama."
 
 ---
 
