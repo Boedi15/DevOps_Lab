@@ -156,10 +156,113 @@
 				tmpfs           171M     0  171M   0% /run/user/1000
 </rich_text>
       </node>
-      <node unique_id="4" master_id="0" name="Manipulasi File (cp, mv, rm, touch)" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="1750253570">
+      <node unique_id="4" master_id="0" name="Manipulasi File (cp, mv, rm, touch)" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="1750519168">
         <rich_text justification="center" underline="single" scale="h1" weight="heavy">MANIPULASI FILE</rich_text>
         <rich_text>
 </rich_text>
+        <rich_text underline="single" foreground="#df08d5" weight="heavy">Command cp</rich_text>
+        <rich_text>
+	digunakan copy file atau direktori
+	contoh :
+</rich_text>
+        <rich_text indent="1" foreground="#f9f06b">[user@vbox home]# ls</rich_text>
+        <rich_text indent="1">
+dev  file.txt  ops  qa  shared  vagrant				</rich_text>
+        <rich_text indent="1" foreground="#8ff0a4">=&gt; file.txt ini adalah file yang kita buat dan akan kita gunakan command cp untuk mencopy file tersebut</rich_text>
+        <rich_text indent="1">
+</rich_text>
+        <rich_text indent="1" foreground="#f9f06b">[user@vbox home]# cp file.txt file_cp.txt
+[user@vbox home]# ls</rich_text>
+        <rich_text indent="1">
+dev  file_cp.txt  file.txt  ops  qa  shared  vagrant</rich_text>
+        <rich_text>		</rich_text>
+        <rich_text foreground="#8ff0a4">=&gt; ini hasil copy file.txt yang kita copy menjadi copy_cp.txt</rich_text>
+        <rich_text>
+
+</rich_text>
+        <rich_text underline="single" foreground="#df08d5" weight="heavy">Comamand mv</rich_text>
+        <rich_text>
+	digunakan untuk memindahkan suatu file atau direktori ke direktori lain dan juga bisa digunakan untuk merename suatu file atau direktori
+	Option &amp; contoh :
+		mv : digunakan hanya untuk memindahkan dan rename
+			</rich_text>
+        <rich_text underline="single">Memindahkan</rich_text>
+        <rich_text>
+</rich_text>
+        <rich_text indent="1" foreground="#f9f06b">[user@vbox ~]$ ls</rich_text>
+        <rich_text indent="1">
+file.txt  folder									</rich_text>
+        <rich_text indent="1" foreground="#8ff0a4">=&gt; posisi awal file.txt berada di /home/user ini akan kita pindahkan ke dalam folder</rich_text>
+        <rich_text indent="1">
+</rich_text>
+        <rich_text indent="1" foreground="#f9f06b">[user@vbox ~]$ mv file.txt folder/</rich_text>
+        <rich_text indent="1">
+</rich_text>
+        <rich_text indent="1" foreground="#f9f06b">[user@vbox ~]$ ls /home/user/folder/</rich_text>
+        <rich_text indent="1">		</rich_text>
+        <rich_text indent="1" foreground="#8ff0a4">=&gt; ini kondisi dimana file.txt sudah pindah ke dalam folder</rich_text>
+        <rich_text indent="1">
+file.txt</rich_text>
+        <rich_text>
+
+			</rich_text>
+        <rich_text underline="single">Merename</rich_text>
+        <rich_text>
+			</rich_text>
+        <rich_text foreground="#f9f06b">[user@vbox folder]$ pwd</rich_text>
+        <rich_text>
+</rich_text>
+        <rich_text indent="1">/home/user/folder
+</rich_text>
+        <rich_text indent="1" foreground="#f9f06b">[user@vbox folder]$ ls</rich_text>
+        <rich_text indent="1">
+file.txt					</rich_text>
+        <rich_text indent="1" foreground="#8ff0a4">=&gt; file.txt yang kita rubah menjadi file-mv.txt</rich_text>
+        <rich_text indent="1">
+</rich_text>
+        <rich_text indent="1" foreground="#f9f06b">[user@vbox folder]$ mv file.txt file-mv.txt
+[user@vbox folder]$ ls</rich_text>
+        <rich_text indent="1">
+file-mv.txt</rich_text>
+        <rich_text>			</rich_text>
+        <rich_text foreground="#8ff0a4">=&gt; file.txt yang sudah berubah menjadi file-mv.txt</rich_text>
+        <rich_text>
+
+		mv -b : -b itu sendiri artinya adalah backup klo file tujuan udah ada, mv bakalan nyimpen salinan cadangan (backup) dulu seblum di tiban
+			</rich_text>
+        <rich_text foreground="#f9f06b">mv -b laporan.txt dokumen.txt</rich_text>
+        <rich_text>
+			kalau dokumen.txt udah ada, maka :
+				- dokumen.txt disimpan dulu jadi dokumen.txt~
+				- baru laporan.txt ditimpa ke dokumen.txt
+					HASIL :
+						dokumen.txt		=&gt; isinya dari laporan.txt
+						dokumen.txt~	=&gt; backup dari dokumen.txt yang lama
+			**</rich_text>
+        <rich_text indent="1">Catatan:
+• Simbol </rich_text>
+        <rich_text indent="1" family="monospace">~</rich_text>
+        <rich_text indent="1"> itu default suffix backup. Bisa diubah lewat </rich_text>
+        <rich_text indent="1" family="monospace">--suffix=SUFFIX</rich_text>
+        <rich_text indent="1">.</rich_text>
+        <rich_text>
+
+		mv -i : -i itu artinya interactive kalau file tujuan sudah ada sebelum di replace mv bakalan kasih notif bertanyaan boleh di replace atau nggak
+			</rich_text>
+        <rich_text foreground="#f9f06b">mv -i data.csv laporan.csv</rich_text>
+        <rich_text>
+</rich_text>
+        <rich_text indent="1">mv: overwrite 'laporan.csv'? </rich_text>
+        <rich_text> (Jawabannya Y/N)
+
+		mv -n : -n singkatan dari no clobber atau jangan file jangan di replace jadi kalau file tujuan udah ada makan se mv nggak akan ngapa ngapain
+		
+</rich_text>
+        <rich_text underline="single" foreground="#df08d5" weight="heavy">Command rm</rich_text>
+        <rich_text>
+
+</rich_text>
+        <rich_text underline="single" foreground="#df08d5" weight="heavy">Command touch</rich_text>
       </node>
       <node unique_id="5" master_id="0" name="Pengelolaan File Text (cat, less, more, head, tail)" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
       <node unique_id="6" master_id="0" name="Pencarian (find, locate, grep)" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
