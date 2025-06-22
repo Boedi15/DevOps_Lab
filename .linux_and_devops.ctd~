@@ -156,7 +156,7 @@
 				tmpfs           171M     0  171M   0% /run/user/1000
 </rich_text>
       </node>
-      <node unique_id="4" master_id="0" name="Manipulasi File (cp, mv, rm, touch)" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="1750519126">
+      <node unique_id="4" master_id="0" name="Manipulasi File (cp, mv, rm, touch)" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="1750574530">
         <rich_text justification="center" underline="single" scale="h1" weight="heavy">MANIPULASI FILE</rich_text>
         <rich_text>
 </rich_text>
@@ -257,7 +257,36 @@ file-mv.txt</rich_text>
 
 		mv -n : -n singkatan dari no clobber atau jangan file jangan di replace jadi kalau file tujuan udah ada makan se mv nggak akan ngapa ngapain
 		
-	</rich_text>
+</rich_text>
+        <rich_text underline="single" foreground="#df08d5" weight="heavy">Command rm</rich_text>
+        <rich_text>
+	digunakan untuk menghapus file/folder
+		Contoh :
+</rich_text>
+        <rich_text indent="1" foreground="#f9f06b">[user@vbox ~]$ ls</rich_text>
+        <rich_text indent="1">
+folder
+</rich_text>
+        <rich_text indent="1" foreground="#f9f06b">[user@vbox ~]$ ls folder/</rich_text>
+        <rich_text indent="1">
+file-mv.txt					</rich_text>
+        <rich_text indent="1" foreground="#8ff0a4">=&gt; contoh file yang akan kita hapus menggunakan perintah rm</rich_text>
+        <rich_text indent="1">
+</rich_text>
+        <rich_text indent="1" foreground="#f9f06b">[user@vbox ~]$ rm /home/user/folder/file-mv.txt 
+[user@vbox ~]$ ls /home/user/folder/</rich_text>
+        <rich_text>
+		Option :
+			rm -r	: Hapus folder yang memiliki isi file/folder
+			rm -f	: -f artinya force tanpa pertanya pokoknya langsung hapus saja
+			rm -i	: -i interactive artinya sebelum di hapus system akan menanyakan atau konfrmasi terlebih dahulu
+			rm -v	: bila di dalam folder yang akan dihapus memiliki isi yang banyak dan kamu ingin melihat tampilan prosesnya bisa menggunakan ini
+
+</rich_text>
+        <rich_text underline="single" foreground="#df08d5" weight="heavy">Command touch</rich_text>
+        <rich_text>
+	digunakan untuk membuat file kosong
+		Contoh </rich_text>
       </node>
       <node unique_id="5" master_id="0" name="Pengelolaan File Text (cat, less, more, head, tail)" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
       <node unique_id="6" master_id="0" name="Pencarian (find, locate, grep)" prog_lang="" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="68" is_bold="0" foreground="" ts_creation="0" ts_lastsave="0"/>
