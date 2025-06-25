@@ -1,0 +1,751 @@
+
+1. Navigasi File System
+Soal: Pindah ke direktori /var/log dan tampilkan file yang paling akhir dimodifikasi.
+Jawaban:
+
+bash
+Copy
+Edit
+cd /var/log
+ls -lt | head -n 1
+2. Relative Path
+Soal: Dari /home/budi/projects/linux kembali ke /home/budi pakai relative path.
+Jawaban:
+
+bash
+Copy
+Edit
+cd ../..
+3. Membuat File dan Direktori
+Soal: Buat direktori latihan dan file kosong test.txt di dalamnya.
+Jawaban:
+
+bash
+Copy
+Edit
+mkdir latihan
+touch latihan/test.txt
+4. Menyalin Direktori
+Soal: Salin isi /etc/skel ke ~/backup_skel.
+Jawaban:
+
+bash
+Copy
+Edit
+cp -r /etc/skel ~/backup_skel
+5. Mencari File
+Soal: Cari file .conf dalam /etc.
+Jawaban:
+
+bash
+Copy
+Edit
+find /etc -type f -name "*.conf"
+6. Find vs Locate
+Jawaban:
+
+bash
+Copy
+Edit
+# find:
+find / -name passwd
+
+# locate:
+locate passwd
+7. Wildcard
+Soal: Tampilkan file di /tmp yang namanya mulai dengan a dan 3 karakter apa pun.
+Jawaban:
+
+bash
+Copy
+Edit
+ls /tmp/a???
+8. File Type
+Soal: Tampilkan tipe file /bin/bash.
+Jawaban:
+
+bash
+Copy
+Edit
+file /bin/bash
+9. Symbolic Link
+Soal: Buat symlink dari /var/log/syslog ke ~/log_terbaru.
+Jawaban:
+
+bash
+Copy
+Edit
+ln -s /var/log/syslog ~/log_terbaru
+10. Hard Link
+Soal: Hard link file /etc/hosts ke /tmp.
+Jawaban:
+
+bash
+Copy
+Edit
+ln /etc/hosts /tmp/hosts_link
+
+
+11. File Permissions
+Soal: Ubah file data.txt supaya hanya bisa dibaca dan ditulis oleh pemilik.
+Jawaban:
+
+bash
+Copy
+Edit
+chmod 600 data.txt
+12. Ownership
+Soal: Ubah pemilik dan grup file server.cfg ke user1.
+Jawaban:
+
+bash
+Copy
+Edit
+chown user1:user1 server.cfg
+13. ACL
+Soal: Tambah hak akses rw- untuk user andi di file report.log.
+Jawaban:
+
+bash
+Copy
+Edit
+setfacl -m u:andi:rw report.log
+14. Output Redirect
+Soal: Simpan output ls -l /etc ke file list.txt.
+Jawaban:
+
+bash
+Copy
+Edit
+ls -l /etc > list.txt
+15. tee Command
+Soal: Tampilkan isi file1.txt ke layar & simpan ke output.txt.
+Jawaban:
+
+bash
+Copy
+Edit
+cat file1.txt | tee output.txt
+16. Pipes
+Soal: Ambil baris error dari syslog dan simpan ke errors.log.
+Jawaban:
+
+bash
+Copy
+Edit
+grep error /var/log/syslog | tee errors.log
+17. Multiple Commands
+Soal: Buat direktori logs, masuk, buat today.log.
+Jawaban:
+
+bash
+Copy
+Edit
+mkdir logs && cd logs && touch today.log
+18. File Maintenance
+Soal: Pindahkan semua file .log ke /var/log/arsip.
+Jawaban:
+
+bash
+Copy
+Edit
+mv *.log /var/log/arsip/
+19. cut Command
+Soal: Ambil kolom ke-2 dari data.csv (delimiter koma).
+Jawaban:
+
+bash
+Copy
+Edit
+cut -d',' -f2 data.csv
+20. awk Command
+Soal: Ambil kolom ke-3 dari data.txt.
+Jawaban:
+
+bash
+Copy
+Edit
+awk '{print $3}' data.txt
+21. grep
+Jawaban:
+
+bash
+Copy
+Edit
+grep "404" access.log
+22. egrep
+Jawaban:
+
+bash
+Copy
+Edit
+egrep "fail|denied" syslog
+23. sort + uniq
+Jawaban:
+
+bash
+Copy
+Edit
+sort userlist.txt | uniq
+24. sort reverse
+Jawaban:
+
+bash
+Copy
+Edit
+sort -r numbers.txt
+25. diff
+Jawaban:
+
+bash
+Copy
+Edit
+diff versi1.txt versi2.txt
+26. cmp
+Jawaban:
+
+bash
+Copy
+Edit
+cmp fileA.bin fileB.bin
+27. wc
+Jawaban:
+
+bash
+Copy
+Edit
+wc artikel.txt
+28. tar
+Jawaban:
+
+bash
+Copy
+Edit
+tar -czvf project.tar.gz project/
+29. gunzip
+Jawaban:
+
+bash
+Copy
+Edit
+tar -xzvf backup.tar.gz
+30. truncate
+Jawaban:
+
+bash
+Copy
+Edit
+truncate -s 0 log.txt
+
+
+31. split
+Soal: Bagi file bigdata.csv jadi 1MB per bagian.
+Jawaban:
+
+bash
+Copy
+Edit
+split -b 1M bigdata.csv part_
+32. combine with cat
+Jawaban:
+
+bash
+Copy
+Edit
+cat part_aa part_ab part_ac > full.txt
+33. vi Editor
+Jawaban:
+
+bash
+Copy
+Edit
+vi notes.txt
+(Lalu tekan i untuk edit, ubah baris pertama, tekan Esc, lalu ketik :wq)
+
+34. vi vs vim
+Jawaban:
+vim adalah versi yang lebih canggih dari vi dengan fitur tambahan seperti syntax highlighting, undo/redo, plugin, dll.
+
+35. sed replace
+Jawaban:
+
+bash
+Copy
+Edit
+sed -i 's/lama/baru/g' artikel.txt
+36. useradd
+Jawaban:
+
+bash
+Copy
+Edit
+sudo useradd -m -s /bin/bash devuser
+37. usermod
+Jawaban:
+
+bash
+Copy
+Edit
+sudo usermod -d /srv/devuser devuser
+38. groupadd
+Jawaban:
+
+bash
+Copy
+Edit
+sudo groupadd devteam
+39. userdel
+Jawaban:
+
+bash
+Copy
+Edit
+sudo userdel -r testuser
+40. passwd aging
+Jawaban:
+
+bash
+Copy
+Edit
+sudo chage -M 30 dina
+41. su
+Jawaban:
+
+bash
+Copy
+Edit
+su -
+42. sudo config
+Jawaban:
+Edit sudoers pakai visudo:
+
+pgsql
+Copy
+Edit
+budi ALL=(ALL) NOPASSWD: /bin/systemctl restart apache2
+43. who
+Jawaban:
+
+bash
+Copy
+Edit
+who
+44. last
+Jawaban:
+
+bash
+Copy
+Edit
+last
+45. w
+Jawaban:
+
+bash
+Copy
+Edit
+w
+46. id
+Jawaban:
+
+bash
+Copy
+Edit
+id budi
+47. wall
+Jawaban:
+
+bash
+Copy
+Edit
+echo "Server restart in 10 minutes" | wall
+48. write
+Jawaban:
+
+bash
+Copy
+Edit
+write andi
+(Tulis pesanmu, tekan Enter, lalu Ctrl+D)
+
+49. setuid
+Jawaban:
+
+bash
+Copy
+Edit
+ls -l /usr/bin/passwd
+50. setgid
+Jawaban:
+
+bash
+Copy
+Edit
+mkdir share
+chmod g+s share
+
+
+51. sticky bit
+Soal: Buat direktori /shared agar hanya pemilik file yang bisa hapus.
+Jawaban:
+
+bash
+Copy
+Edit
+mkdir /shared
+chmod +t /shared
+52. find dengan permission
+Soal: Cari file dengan permission 777 di /var
+Jawaban:
+
+bash
+Copy
+Edit
+find /var -type f -perm 0777
+53. locate
+Jawaban:
+
+bash
+Copy
+Edit
+locate bashrc
+54. command history
+Jawaban:
+
+bash
+Copy
+Edit
+history | tail -10
+55. tab completion
+Jawaban:
+Ketik:
+
+bash
+Copy
+Edit
+cd /et[TAB]
+56. redirect error
+Jawaban:
+
+bash
+Copy
+Edit
+ls /root 2> error.log
+57. stdin redirect
+Jawaban:
+
+bash
+Copy
+Edit
+wc < file.txt
+58. tee append
+Jawaban:
+
+bash
+Copy
+Edit
+date | tee -a log_harian.txt
+59. cut delimiter
+Jawaban:
+
+bash
+Copy
+Edit
+cut -d',' -f3 data.csv
+60. awk filter
+Jawaban:
+
+bash
+Copy
+Edit
+awk -F',' '$2 > 100' laporan.txt
+61. cron job
+Jawaban:
+
+bash
+Copy
+Edit
+crontab -e
+Isi cron job:
+
+bash
+Copy
+Edit
+0 2 * * * /opt/backup.sh
+62. chmod recursive
+Jawaban:
+
+bash
+Copy
+Edit
+chmod -R +x /home/budi/scripts
+63. chgrp
+Jawaban:
+
+bash
+Copy
+Edit
+chgrp dbadmin db.cfg
+64. systemctl
+Jawaban:
+
+bash
+Copy
+Edit
+sudo systemctl restart nginx
+sudo systemctl status nginx
+65. ps aux
+Jawaban:
+
+bash
+Copy
+Edit
+ps aux
+66. top
+Jawaban:
+
+bash
+Copy
+Edit
+top
+(tekan P buat urut berdasarkan CPU usage)
+
+67. kill
+Jawaban:
+
+bash
+Copy
+Edit
+kill 12345
+68. killall
+Jawaban:
+
+bash
+Copy
+Edit
+killall firefox
+69. uname
+Jawaban:
+
+bash
+Copy
+Edit
+uname -a
+70. uptime
+Jawaban:
+
+bash
+Copy
+Edit
+uptime
+71. hostname
+Jawaban:
+
+bash
+Copy
+Edit
+hostname
+sudo hostnamectl set-hostname server-budi
+72. which
+Jawaban:
+
+bash
+Copy
+Edit
+which python
+73. cal
+Jawaban:
+
+bash
+Copy
+Edit
+cal
+cal -m
+74. bc
+Jawaban:
+
+bash
+Copy
+Edit
+echo "12.5 * 3.4" | bc
+75. mkdir -p
+Jawaban:
+
+bash
+Copy
+Edit
+mkdir -p /data/backup/2025/juni
+76. rm recursive
+Jawaban:
+
+bash
+Copy
+Edit
+rm -rf old_logs
+77. head
+Jawaban:
+
+bash
+Copy
+Edit
+head log.txt
+78. tail -f
+Jawaban:
+
+bash
+Copy
+Edit
+tail -f /var/log/syslog
+79. rmdir
+Jawaban:
+
+bash
+Copy
+Edit
+rmdir draft
+80. mv rename
+Jawaban:
+
+bash
+Copy
+Edit
+mv old_report.txt new_report.txt
+81. cut -d:
+Jawaban:
+
+bash
+Copy
+Edit
+cut -d':' -f1 /etc/passwd
+82. awk + if
+Jawaban:
+
+bash
+Copy
+Edit
+awk -F':' '$7=="/bin/bash" {print $1}' /etc/passwd
+83. grep recursive
+Jawaban:
+
+bash
+Copy
+Edit
+grep -r "fail" /var/log
+84. find exec
+Jawaban:
+
+bash
+Copy
+Edit
+find /tmp -type f -name "*.tmp" -exec rm -f {} \;
+85. gzip
+Jawaban:
+
+bash
+Copy
+Edit
+gzip log.txt
+86. gunzip
+Jawaban:
+
+bash
+Copy
+Edit
+gunzip log.txt.gz
+87. chown recursive
+Jawaban:
+
+bash
+Copy
+Edit
+chown -R budi:budi project/
+88. touch timestamp
+Jawaban:
+
+bash
+Copy
+Edit
+touch log.txt
+89. stat
+Jawaban:
+
+bash
+Copy
+Edit
+stat data.txt
+90. ls sort
+Jawaban:
+
+bash
+Copy
+Edit
+ls -lt
+91. cd -
+Jawaban:
+
+bash
+Copy
+Edit
+cd -
+92. ls hidden
+Jawaban:
+
+bash
+Copy
+Edit
+ls -a
+93. mkdir && cd
+Jawaban:
+
+bash
+Copy
+Edit
+mkdir logs2025 && cd logs2025
+94. echo to file
+Jawaban:
+
+bash
+Copy
+Edit
+echo "Backup sukses!" > status.txt
+95. date format
+Jawaban:
+
+bash
+Copy
+Edit
+date "+%Y-%m-%d %H:%M"
+96. uptime filter
+Jawaban:
+
+bash
+Copy
+Edit
+uptime | awk '{print $3, $4}' | sed 's/,//'
+97. chmod symbolic
+Jawaban:
+
+bash
+Copy
+Edit
+chmod g+rw,g-x laporan.txt
+98. groupdel
+Jawaban:
+
+bash
+Copy
+Edit
+sudo groupdel oldgroup
+99. group membership
+Jawaban:
+
+bash
+Copy
+Edit
+groups budi
+100. file type magic
+Jawaban:
+
+bash
+Copy
+Edit
+file gambar.png
