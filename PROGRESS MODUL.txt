@@ -35,17 +35,28 @@ Soft and Hard Links (ln)
 
 Module 4 – Linux Fundamentals
 Commands Syntax
-File Permissions (chmod)
-File Ownership (chown, chgrp)
+File and directory Permissions (chmod)
+file permissions using numeric mode
+File Ownership command (chown, chgrp)
+Access control list (ACL)
 Getting Help (man, whatis etc.)
 TAB completion and up arrow keys
 Adding text to file
-Pipes
-File Maintenance Commands
-File Display Commands
+Input and Output Redirects (>, >>, <, stdin, stdout and stderr)
+Standard Output to a File (tee command)
+Pipes (|)
+Executing multiple commands
+File Maintenance Commands (cp, rm, mv, mkdir, rmdir)
+File Display Commands (cat, less, more, head, tail)
 Filters / Text Processing Commands (cut, sort, grep, awk, uniq, wc)
+Cut - text processors commands
+awk
+grep/egrep
+sort/uniq
 Compare Files (diff, cmp)
+wc - text processors commands
 Compress and Un-compress files/directories (tar, gzip, gunzip)
+Truncate file size
 Combining and Splitting Files
 Linux vs. Windows Commands
 
@@ -70,3 +81,9 @@ Terminal control keys
 Terminal Commands (clear, exit, script)
 Recover root Password (single user mode)
 SOS Report
+Terminal control keys
+Terminal commands (clear,exit, script)
+Recover root password
+Environment Variables
+The tmux command
+
