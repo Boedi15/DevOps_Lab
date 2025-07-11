@@ -1,0 +1,135 @@
+1. Login ke sistem Linux menggunakan PuTTY dan tampilkan hostname dari sistem tersebut.
+2. Buat 3 direktori baru di dalam /home dengan nama `project1`, `project2`, dan `project3`.
+mkdir -p /home/project1 /home/project2 /home/project3
+
+3. Buat file bernama `data.txt` di dalam direktori `project1` dan tambahkan teks bebas ke dalamnya menggunakan `echo`.
+echo "hello world" > /home/project1/data.txt
+
+4. Ganti permission file `data.txt` agar hanya owner yang bisa membaca dan menulis.
+chmod 600 /home/project1/data.txt
+
+5. Buat user baru dengan nama `tester` dan set password-nya.
+useradd tester
+passwd tester
+
+6. Tambahkan user `tester` ke dalam group `wheel` agar bisa menggunakan sudo.
+usermod -aG wheel tester
+
+7. Cek semua user yang sedang aktif login ke sistem.
+who
+
+8. Cek penggunaan disk di sistem menggunakan perintah yang sesuai.
+df -h
+
+9. Cari semua file berextension `.conf` yang berada di dalam direktori /etc.
+find /etc -name "*.conf"
+
+10. Tampilkan isi dari file `/etc/passwd` dan filter hanya yang mengandung `/bin/bash`.
+grep 'bin/bash' /etc/passwd
+
+11. Gunakan `cut` untuk menampilkan hanya field nama user dari file `/etc/passwd`.
+cut -d: -f1 /etc/passwd
+
+12. Bandingkan dua file dan tampilkan perbedaannya.
+diff -y file1.conf file2.conf
+
+13. Buat symbolic link dari file `data.txt` ke dalam direktori `/tmp` dengan nama `link_data`.
+ln -s /home/project1/data.txt /tmp/link_data
+
+14. Kompres seluruh isi direktori `project1` menjadi file `.tar.gz`.
+tar -czf project1.tar.gz -C /home project1
+
+15. Ekstrak file `.tar.gz` tersebut ke direktori `/opt`.
+tar -xzf project1.tar.gz -C /opt
+
+16. Buat script bash sederhana yang mengecek apakah sebuah direktori ada atau tidak.
+17. Gunakan `chmod` untuk memberi permission `rwxr-xr--` ke file `data.txt`.
+chmod 750 data.txt
+
+18. Gunakan `chown` untuk memindahkan kepemilikan file `data.txt` ke user `tester`.
+chown tester data.txt
+
+19. Cek informasi sistem seperti arsitektur dan versi OS.
+cat /etc/os-release
+uname -m
+
+20. Tampilkan 10 baris terakhir dari file `/var/log/messages`.
+tail /var/log/messages
+
+21. Buat cronjob untuk menjalankan script backup.sh setiap jam 1 pagi.
+0 1 * * * backup.sh
+
+22. Tampilkan semua cronjob milik user `tester`.
+crontab -u tester -l
+
+23. Gunakan perintah `ps` untuk melihat proses-proses yang sedang berjalan.
+ps aux atau ps -ef
+
+24. Hentikan proses dengan nama tertentu menggunakan `kill`.
+kill -9 12345
+
+25. Gunakan `grep` untuk mencari keyword "error" di dalam file log sistem.
+grep -i error /var/log
+
+26. Hitung jumlah baris di file `/etc/passwd` menggunakan `wc`.
+wc -l /etc/passwd
+
+27. Sorting isi dari file `data.txt` berdasarkan abjad.
+sort data.txt
+
+28. Buat ACL pada file `data.txt` agar user `tester` bisa read-write tanpa mengubah permission utama.
+setfacl -m u:tester:rw data.txt
+
+29. Simulasikan perintah `tee` untuk menyimpan output ke dua file sekaligus.
+30. Gunakan `awk` untuk menampilkan field ke-1 dan ke-3 dari `/etc/passwd`.
+awk -F: '{print $1, $3}' /etc/passwd
+
+31. Buat dan jalankan script untuk menampilkan free memory dan write ke file `/tmp/meminfo.txt`.
+32. Gunakan `hostnamectl` untuk mengganti hostname menjadi `server-latihan`.
+hostnamectl set-hostname server-latihan
+
+33. Recover password root di VM (simulasi, tidak dilakukan langsung).
+34. Gunakan perintah `init` atau `systemctl` untuk reboot sistem.
+systemctl reboot
+
+35. Buat script yang menerima input dari user dan print kembali.
+36. Gunakan `vi` untuk membuat file baru dan tambahkan 3 baris teks manual.
+vi data.txt
+baris 1
+baris 2
+baris 3
+
+37. Buat script dengan kondisi if-else untuk mengecek apakah file ada.
+38. Cek informasi hardware menggunakan `dmidecode`.
+dmidecode
+
+39. Jalankan perintah `uptime` dan simpan hasilnya ke file.
+uptime > file
+
+40. Tampilkan hanya direktori dari `/etc` menggunakan perintah `ls` dan `grep`.
+ls -l /etc | grep ^d
+
+41. Tampilkan isi environment variable `PATH` dan simpan output-nya ke file.
+echo $PATH > path.txt
+
+42. Jalankan perintah `script` untuk merekam sesi terminal dan simpan ke `/tmp/sesi.txt`.
+43. Buat 2 user, masing-masing dengan direktori home dan password sendiri.
+useradd user1
+passwd user1
+
+useradd user2
+passwd user2
+
+44. Hapus user `tester` tanpa menghapus home-nya.
+userdel tester
+
+45. Simulasikan login ke user lain menggunakan `su`.
+su - user
+
+46. Buat file dengan `truncate` sebesar 100MB.
+47. Gunakan `wall` untuk broadcast pesan ke semua user.
+echo "server akan mati dalam 10 menit" | wall
+
+48. Bandingkan command `who`, `w`, dan `users`.
+49. Jalankan `tmux` dan buat 2 jendela di dalamnya.
+50. Export sebuah environment variable lalu gunakan dalam script bash.

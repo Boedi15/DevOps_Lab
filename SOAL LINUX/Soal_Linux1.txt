@@ -1,0 +1,167 @@
+50 SOAL PRAKTIK LINUX UNTUK SYSOPS
+
+1. Tampilkan isi direktori root (/) dengan informasi detail per file.
+[root@centos ~]# ls -l /
+total 2097224
+dr-xr-xr-x.   2 root    root          4096 Jun 25  2024 afs
+lrwxrwxrwx.   1 root    root             7 Jun 25  2024 bin -> usr/bin
+dr-xr-xr-x.   5 root    root          4096 Jul  9 12:24 boot
+drwxr-xr-x.  17 root    root          2980 Jul  9 12:24 dev
+drwxr-xr-x.  88 root    root          4096 Jul  9 12:29 etc
+drwxr-xr-x.   3 root    ops           4096 Jul  9 12:29 home
+lrwxrwxrwx.   1 root    root             7 Jun 25  2024 lib -> usr/lib
+lrwxrwxrwx.   1 root    root             9 Jun 25  2024 lib64 -> usr/lib64
+drwx------.   2 root    root         16384 Apr 28 04:12 lost+found
+drwxr-xr-x.   2 root    root          4096 Jun 25  2024 media
+drwxr-xr-x.   2 root    root          4096 Jun 25  2024 mnt
+drwxr-xr-x.   2 root    root          4096 Jun 25  2024 opt
+dr-xr-xr-x. 145 root    root             0 Jul  9 12:24 proc
+dr-xr-x---.   4 root    root          4096 Jul  8 13:25 root
+drwxr-xr-x.  28 root    root           840 Jul  9 12:24 run
+lrwxrwxrwx.   1 root    root             8 Jun 25  2024 sbin -> usr/sbin
+drwxr-xr-x.   2 root    root          4096 Jun 25  2024 srv
+-rw-------.   1 root    root    2147483648 Apr 28 04:14 swapfile
+dr-xr-xr-x.  13 root    root             0 Jul  9 12:24 sys
+drwxrwxrwt.  11 root    root          4096 Jul  9 12:29 tmp
+drwxr-xr-x.  12 root    root          4096 Apr 28 04:13 usr
+drwxrwxr-x.   2 vagrant vagrant       4096 Jun  7 13:58 vagrant
+drwxr-xr-x.  20 root    root          4096 Jun 11 12:59 var
+
+2. Buat direktori dengan nama "backup_daily" di dalam /home kamu.
+mkdir /home/backup_daily
+
+3. Buat file teks dengan nama "catatan.txt" di dalam direktori baru tersebut, lalu isi dengan 3 baris teks.
+cat > /home/backup_daily/catatan.txt
+baris 1
+baris 2
+baris 3
+
+4. Buat symbolic link dari file catatan.txt ke /tmp dengan nama "link_catatan".
+ln -s /home/daily_backup/catatat.txt /tmp/link_catatan
+
+5. Tampilkan path lengkap dari binary file "bash".
+which bash
+/bin/bash
+
+6. Tampilkan file apa saja yang berekstensi .conf di dalam /etc dan subfolder-nya.
+find /etc -name "*.conf"
+
+7. Cari semua file yang dimodifikasi dalam 7 hari terakhir di direktori /var/log.
+find /var/log -type f -mtime 7
+
+8. Gunakan grep untuk mencari semua baris yang mengandung kata “error” dalam file /var/log/messages.
+cat /var/log | grep -i error
+
+9. Gabungkan file /etc/passwd dan /etc/group menjadi satu file baru bernama "user_group.txt".
+cat /etc/passwd /etc/group > user_group.txt
+
+10. Tampilkan hanya kolom username dari file /etc/passwd.
+ut -d: -f1 /etc/passwd
+
+11. Buat user baru bernama "devuser" dan atur password-nya.
+useradd devuser
+passwd devuser
+
+12. Tambahkan user "devuser" ke dalam grup "wheel".
+usermod -aG wheel devuser
+
+13. Berikan hak akses full ke user owner, baca ke grup, dan tidak ada akses ke other pada file catatan.txt.
+chmod 740 catatan.txt
+
+14. Berikan akses penuh ke user "devuser" terhadap file catatan.txt menggunakan setfacl.
+setfacl -m u:devuser:rwx catatan.txt
+
+15. Tampilkan semua proses yang sedang berjalan dengan user root.
+ps aux | grep -i root
+
+16. Matikan proses dengan nama "httpd" jika sedang berjalan.
+systemctl stop httpd
+
+17. Buat cronjob yang menampilkan tanggal saat ini ke file /tmp/tanggal.txt setiap 5 menit.
+*/5 * * * * date > /tmp/tanggal.txt
+
+18. Cek jadwal cron yang aktif untuk user saat ini.
+crontab -l
+
+19. Kompres folder backup_daily menjadi file backup.tar.gz.
+tar -czf backup.tar.gz /home/backup_daily
+
+20. Ekstrak file backup.tar.gz ke dalam folder /tmp/test_backup.
+tar -xzf backup.tar.gz /tmp/test_backup
+
+21. Gunakan vi untuk menulis kalimat “Belajar Linux itu seru!” ke dalam file motivasi.txt.
+vi motivasi.txt
+
+22. Gunakan sed untuk mengganti semua kata “Linux” menjadi “LINUX” pada file motivasi.txt.
+sed -i 's/Linux/LINUX/g' motivasi.txt
+
+23. Gunakan awk untuk menampilkan nama user dan shell login dari file /etc/passwd.
+awk -F: '{ print $1, $7 }' /etc/passwd
+
+24. Tampilkan memory free dan penggunaan swap.
+free -h
+
+25. Tampilkan informasi sistem kernel yang sedang digunakan.
+uname -r
+
+26. Ganti hostname sistem menjadi "server-praktek".
+hostnamectl set-hostname server-praktek
+
+27. Tampilkan semua service yang sedang aktif saat ini.
+ps aux atau ps -ef
+
+28. Matikan service "firewalld" dan pastikan tidak aktif saat booting.
+systemctl stop firewalld
+systemctl disable firewalld
+
+29. Buat script bash sederhana untuk melakukan backup file dari /etc ke /home kamu.
+30. Jalankan perintah yang menampilkan tanggal dan waktu saat ini, lalu arahkan output-nya ke file waktu.txt.
+date > waktu.txt
+
+31. Buat file log.txt lalu tambahkan output dari perintah `df -h` ke file tersebut tanpa menghapus isi sebelumnya.
+touch log.txt
+df -h >> log.txt
+
+32. Jalankan dua perintah sekaligus: tampilkan tanggal dan nama user saat ini.
+date && whoami
+
+33. Tampilkan file /etc/shadow menggunakan sudo.
+sudo cat /etc/shadow
+
+34. Buat perintah yang akan menampilkan semua user aktif di sistem.
+who | grep pts
+
+35. Kirim pesan ke semua user login saat ini dengan perintah wall.
+echo "5 menit lagi server akan di restart" | wall
+
+36. Cek apakah user "apache" ada di sistem.
+cat /etc/passwd | grep apache
+
+37. Simulasikan reboot sistem dalam 2 menit.
+38. Buat schedule task dengan `at` untuk menulis “Task selesai” ke file /tmp/hasil.txt dalam 1 menit dari sekarang.
+39. Gunakan tmux untuk membuat sesi baru bernama "monitoring".
+40. Dalam sesi tmux, jalankan `top` untuk monitoring real-time.
+41. Cek partisi disk dan tampilkan hanya ukuran dan mount point-nya.
+42. Tampilkan statistik IO disk dengan interval 1 detik sebanyak 3 kali.
+43. Cek hostname saat ini dan catat di file /tmp/hostname.txt.
+hostname > /tmp/hostname.txt
+
+44. Gunakan script untuk memindahkan semua file .log dari /var/log ke folder /tmp/log_backup.
+45. Tampilkan semua port yang sedang listening menggunakan netstat.
+netstat
+
+46. Hapus user "devuser" beserta home directory-nya.
+userdel -r devuser
+
+47. Buat direktori shared dengan permission default 770 dan bisa diakses oleh grup tertentu saja.
+mkdir shared
+chmod 770 shared/
+setfacl -m g:group:rwx shared/
+
+48. Tampilkan semua variable environment aktif untuk shell kamu.
+49. Buat hardlink dari /etc/hosts ke /home/user/hosts_hardlink.
+ln /etc/host /home/user/hosts_hardlink
+
+50. Buat file cron mingguan untuk reboot server setiap hari Minggu jam 2 pagi.
+
+

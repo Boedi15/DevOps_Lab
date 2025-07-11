@@ -1,0 +1,188 @@
+1. Jelaskan struktur file system Linux dan buatlah diagramnya di kertas atau secara digital.
+2. Tampilkan isi direktori /etc dan arahkan hasilnya ke file list_etc.txt.
+jawab : ls /etc > list_etc.txt
+3. Buat direktori /home/student/testdir dan tambahkan file kosong file1.txt di dalamnya.
+jawab : touch /home/student/testdir/file1.txt
+4. Cari semua file .conf di direktori /etc.
+jawab : find /etc -name "*.conf"
+5. Ubah password user kamu sendiri.
+jawab : passwd user
+6. Tampilkan semua file yang berawalan net dan berekstensi .cfg menggunakan wildcard.
+jawab : ls net*.net
+7. Gabungkan file a.txt dan b.txt menjadi ab.txt.
+jawab : cat a.txt b.txt > ab.txt
+8. Buat hard link dari /etc/passwd ke direktori home kamu.
+jawab : ln /etc/passwd /home
+9. Buat soft link dari /var/log/syslog ke home kamu bernama log_terbaru.
+jawab : ln -s /var/log/syslog /home/log_terbaru
+10. Jelaskan perbedaan hardlink dan symlink + contoh penggunaan real-nya.
+11. Ubah permission file test.txt menjadi 754.
+jawab : chmod 754 test.txt
+12. Ubah owner test.txt menjadi user budi dan group devops.
+jawab : chown devops test.txt
+13. Berikan akses full ke user admin ke file /home/student/report.txt pakai ACL.
+jawab : setfacl -m u:admin:rwx /home/student/report.txt
+14. Gunakan man untuk mencari info tentang cut.
+jawab : man cut
+15. Redirect output ls /etc ke list.txt.
+jawab : ls /etc > list.txt
+16. Filter isi list.txt yang mengandung kata network.
+jawab : grep -i network list.txt
+17. Gabungkan ps dan grep untuk menampilkan proses ssh.
+jawab : ps aux | grep ssh
+18. Gunakan tee untuk mencatat output uptime ke log.txt.
+jawab : uptime | tee log.txt
+19. Jalankan dua perintah sekaligus: tampilkan tanggal dan hostname.
+jawab : date && hostname
+20. Buat script bash untuk mindahin semua .log ke folder backup/.
+21. Tampilkan 10 baris pertama file /var/log/syslog.
+jawab : head /var/log/syslog
+22. Tampilkan 10 baris terakhir dari file yang sama.
+jawab : tail /var/log/syslog
+23. Urutkan file data.txt dan hilangkan duplikat.
+jawab : sort -u data.txt
+24. Hitung jumlah baris, kata, karakter di notes.txt.
+jawab : wc notes.txt
+25. Bandingkan config1.conf dan config2.conf pakai diff.
+jawab : diff config1.conf config2.conf
+26. Kompres direktori /etc jadi .tar.gz.
+jawab : tar -czf etc.tar.gz /etc
+27. Ekstrak config.tar.gz ke direktori saat ini.
+jawab : tar -xzf ect.tar.gz /etc
+28. Potong file log.txt jadi 0 byte dengan truncate.
+jawab : truncate -s 0 log.txt
+29. Gabungkan isi tiga file jadi gabungan.txt.
+jawab : cat file1.txt file2.txt file3.txt > gabungan.txt
+30. Buat tabel perbandingan perintah Linux vs Windows untuk navigasi file.
+31. Buka vi, tulis 3 baris teks, simpan.
+jawab :
+vi data.txt
+baris 1
+baris 2
+baris 3
+esc -> wq
+32. Gunakan sed untuk mengganti kata server jadi client dalam config.txt.
+jawab : sed 's/server/client/g' config.txt
+33. Tambah user devuser dan atur password.
+jawab :
+useradd devuser
+passwd devuser
+34. Tambah user itu ke grup sysadmin.
+jawab : usermod -aG sysadmin devuser
+35. Jalankan shutdown pakai sudo.
+jawab : sudo systectl shutdown
+36. Kirim pesan ke semua user login pakai wall.
+jawab : echo "Server down" | wall
+37. Jelaskan perbedaan AD, LDAP, OpenLDAP.
+38. Tampilkan hostname dan simpan ke hostname.txt.
+jawab : hostname > hostname.txt
+39. Tampilkan durasi uptime sistem kamu.
+jawab : uptime
+40. Tampilkan proses milik user root dengan ps.
+jawab : ps aux | grep root
+41. Jalankan top dan amati proses.
+jawab : top
+42. Matikan proses dengan kill.
+jawab :
+ps aux | grep httpd
+root        3172  0.0  0.1   6412  2176 pts/0    S+   15:24   0:00 grep --color=auto httpd
+kill -9 3172
+43. Buat cronjob: tampilkan date tiap jam ke log_time.txt.
+jawab : 0 * * * * log_time.txt
+44. Buat at job: jalanin backup.sh jam 22:00.
+45. Lihat penggunaan disk dengan df -h.
+jawab :df -h
+46. Cek penggunaan RAM dengan free -h.
+jawab : free -h
+47. Shutdown sistem dalam 5 menit.
+48. Ganti hostname jadi server-lab.
+jawab : hostnamectl set-hostname server-lab
+49. Tampilkan info sistem dengan uname dan cat /etc/*release*.
+jawab : uname && cat /etc/os-release
+50. Tampilkan arsitektur sistem dengan arch.
+jawab : arch
+51. Cari lokasi file sshd_config dengan locate.
+jawab : locate sshd_config
+52. Jelaskan perbedaan path absolut dan relatif, lalu tunjukkan contoh.
+53. Tampilkan semua file berawalan s di /usr/bin.
+jawab : ls /usr/bin/s*
+54. Output date && hostname ke file hasil.txt.
+jawab : date && hostname > hasil.txt
+55. Ambil kolom ke-2 dari /etc/passwd pakai cut.
+jawab : cut -d: -f2 /etc/passwd
+56. Tambahkan teks ke akhir backup.log tanpa menimpa isinya.
+jawab : echo "tambah baris" >> backup.log
+57. Gunakan pipe: ls /etc | grep ssh.
+jawab : ls /etc | grep ssh
+58. Jalankan date, whoami, dan uptime sekaligus.
+jawab : date && whoami && uptime
+59. Simpan output df -h ke dua file pakai tee.
+jawab : df -h | tee output1.txt output2.txt
+60. Tampilkan 20 baris pertama dari /etc/services.
+jawab : head -20 /etc/services
+61. Cari baris yang mengandung root dalam /etc/passwd.
+jawab : grep -i root /etc/passwd
+62. Hitung total user dalam /etc/passwd.
+jawab : wc -l /etc/passwd
+63. Urutkan isi /etc/passwd secara alfabet.
+jawab : sort /etc/passwd
+64. Kompres access.log pakai gzip.
+jawab : gzip access.log
+65. Ekstrak hasil.gz ke direktori kerja.
+jawab : gunzip hasil.gz /kerja
+66. Bandingkan a.txt dan b.txt pakai cmp.
+jawab : cmp a.tct b.txt
+67. Tampilkan user dan shell dari /etc/passwd pakai awk.
+jawab : awk -F: '{print $1, $7}'
+68. Ubah umask default user jadi 0022.
+jawab : umask 0022
+69. Buat check_disk.sh untuk cek disk usage.
+70. Gunakan < untuk arahkan input file ke perintah sort.
+71. Tulis file jaringan.txt berisi 5 baris config dengan vi.
+72. Hapus baris kosong di notes.txt pakai sed.
+73. Buat user tester dengan shell /bin/bash.
+jawab : useradd -s /bin/bash tester
+74. Buat grup cloudops dan masukkan tester ke situ.
+jawab :
+groupadd cloudops
+usermod -aG cloudops tester
+75. Konfigurasi sudo agar tester hanya bisa jalanin systemctl.
+jawab : visudo
+76. Cek user login dan kirim pesan ke mereka pakai write.
+77. Kirim pesan maintenance ke semua user pakai wall.
+jawab : echo "Maintenance" | wall
+78. Tampilkan hostname, arsitektur, kernel versi.
+jawab : hostname && arch && uname -r
+79. Rekam aktivitas terminal 1 menit pakai script.
+80. Jelaskan cara reset password root lewat single user mode.
+81. Gunakan dmesg untuk lihat log kernel saat boot.
+jawab : dmesg
+82. Gunakan iostat untuk cek aktivitas disk 5 detik.
+jawab : iostat 1 5
+83. Tampilkan koneksi aktif pakai netstat.
+jawab : netstat
+84. Buat cronjob: hapus file log > 7 hari tiap jam 1 pagi.
+85. Buat at job: jalankan free -h jam 21:00.
+86. Simpan hasil uptime ke uptime_report.txt.
+jawab : uptime > uptime 
+87. Ganti hostname pakai hostnamectl.
+jawab : hostnamectl set-hostname server
+88. Tampilkan isi PATH dan tambahkan /opt/bin.
+89. Tampilkan semua environment variable aktif.
+90. Bandingkan uname -r dengan cat /proc/version.
+91. Hitung baris dengan 404 di access.log pakai awk.
+jawab : awk '$0 ~ /404/' access.log | wc -l
+92. Buat monitor.sh yang restart ssh jika mati.
+93. Ubah permission script.sh jadi hanya owner bisa eksekusi.
+jawab : chmod 700 script.sh
+94. Buat folder /home/user/project hanya bisa diakses owner.
+jawab : chmod 600 /home/user/project
+95. Buat ACL: user auditor bisa baca laporan.txt saja.
+jawab : setfacl -m u:auditor:r laporan.txt
+96. Simulasikan shutdown dan batalkan sebelum jalan.
+97. Backup /etc jadi .tar.gz ke direktori home.
+jawab : 
+98. Buat symlink /usr/bin/python3 ke direktori kerja.
+99. Bandingkan original.txt dan backup.txt pakai diff.
+100. Tulis langkah lengkap: buat user baru + kasih hak sudo + uji aksesnya.
+
