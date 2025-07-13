@@ -1,0 +1,117 @@
+1. Buat partisi baru menggunakan fdisk di device /dev/sdb.
+2. Format partisi /dev/sdb1 ke ext4 dan mount ke /mnt/data.
+3. Tambahkan mount entry di /etc/fstab agar otomatis mount saat boot.
+4. Tampilkan penggunaan disk dengan format human readable.
+jawab : df -h
+5. Temukan file lebih besar dari 500MB di /var.
+6. Buat skrip bash untuk backup /etc ke direktori /backup harian.
+7. Cek inode usage dari partisi root (/).
+jawab : df -i /
+8. Buat direktori dengan permission 750 dan ACL full akses ke user audit.
+jawab :
+mkdir -p /home/shared
+chmod 750 /home/shared
+setfacl -m u:audit:rwx /home/shared
+9. Gunakan du untuk melihat penggunaan space per folder dalam /var.
+jawab : du /var
+10. Cek filesystem error pada /dev/sda1 menggunakan fsck.
+11. Buat dan mount loop device dari file kosong 1GB.
+12. Gunakan find untuk mencari file yang tidak diakses selama 30 hari.
+13. Hitung jumlah file .log di seluruh sistem.
+14. Hapus semua file .tmp di /tmp yang lebih dari 1 hari.
+15. Monitor space root partition dan kirim alert jika > 90%.
+16. Simpan output df -h dan du -sh * dalam satu file laporan.
+17. Buat script untuk sync direktori /data ke /backup/data.
+18. Tambahkan label pada filesystem ext4 baru.
+19. Gunakan lsattr dan chattr untuk mengunci file agar tidak bisa dihapus.
+20. Temukan file symlink yang rusak di direktori home user.
+21. Buat user baru dan ubah default shell jadi /bin/zsh.
+jawab : useradd -s /bin/zsh user
+22. Cek user aktif saat ini dan kapan terakhir login.
+23. Tampilkan semua grup yang dimiliki user john.
+jawab : id john atau groups john 
+24. Batasi user hanya bisa login lewat tty1 saja.
+25. Atur agar user audit memiliki masa aktif password 90 hari.
+26. Nonaktifkan sementara user staging.
+27. Set umask default sistem jadi 0027.
+jawab : umask 0027
+28. Buat grup ops, masukkan beberapa user, dan beri akses ke /srv/ops.
+jawab :
+groupadd ops
+usermod -aG ops user1
+usermod -aG ops user2
+chgrp ops /srv/ops
+chmod 770 /srv/ops
+29. Log aktivitas login user menggunakan last dan who.
+30. Cek dan atur sudo access hanya untuk admin dan budi.
+31. Ubah home direktori user dev jadi /opt/dev.
+32. Cek permission default file baru user dengan umask.
+jawab : umask
+33. Tambahkan ACL ke file agar hanya bisa dibaca grup tertentu.
+34. Cek user yang login tanpa password dan blokir aksesnya.
+35. Temukan semua file yang dimiliki user nobody.
+36. Tampilkan dan ubah info akun user dengan chage.
+37. Buat skrip yang men-disable user yang tidak aktif 60 hari.
+38. Konfigurasi agar user backup bisa jalankan rsync via sudo tanpa password.
+39. Hapus user oldadmin beserta direktori home-nya.
+40. Tampilkan semua user sistem (/etc/passwd) yang memiliki shell /bin/bash.
+41. Cek proses dengan penggunaan memori paling besar.
+42. Kill semua proses milik user tester.
+43. Buat skrip monitor proses nginx, restart kalau mati.
+44. Cek beban CPU dengan top dan uptime.
+45. Log penggunaan CPU dan RAM tiap 5 menit selama 30 menit.
+46. Temukan proses zombie yang aktif.
+47. Cek semua service aktif menggunakan systemctl.
+48. Simpan status semua service ke file services.txt.
+49. Aktifkan service ssh dan pastikan jalan saat boot.
+50. Cek service yang gagal jalan dan log-nya.
+51. Pantau trafik jaringan real-time.
+52. Cek koneksi listening di port 22.
+53. Simpan log semua koneksi TCP ke file.
+54. Monitor file /var/log/auth.log untuk login ssh gagal.
+55. Cek log boot terakhir menggunakan journalctl.
+56. Filter log systemd berdasarkan waktu tertentu.
+57. Cek uptime terakhir reboot dan siapa yang login saat itu.
+58. Simpan output dmesg terakhir ke file.
+59. Monitor proses spesifik dan simpan ke log harian.
+60. Buat cron untuk log penggunaan top setiap jam.
+61. Buat skrip cek status service dan email jika down.
+62. Buat skrip rotasi log manual.
+63. Buat skrip deteksi perubahan permission file penting (/etc/passwd).
+64. Buat skrip auto-backup direktori /home dengan timestamp.
+65. Skrip copy file hanya jika lebih baru (rsync -u).
+66. Buat skrip untuk membuat 10 user baru sekaligus.
+67. Buat skrip auto-update paket tiap minggu.
+68. Backup cron job semua user ke file.
+69. Restore semua cron job dari file backup.
+70. Tambahkan cron untuk update paket tiap hari pukul 03:00.
+71. Buat skrip log monitor isi /etc/shadow harian.
+72. Otomatiskan cek integritas file menggunakan sha256sum.
+73. Skrip ping server dan log statusnya setiap 10 menit.
+74. Skrip cek koneksi ke database lokal.
+75. Otomatiskan backup MySQL harian.
+76. Buat skrip clone user termasuk grup dan permissionnya.
+77. Tampilkan semua file script bash milik user devops.
+78. Cek semua script yang error dalam cron log.
+79. Tambahkan entry cron yang menjalankan script.sh setiap Senin jam 6 pagi.
+80. Buat skrip interactive menu untuk SysOps harian.
+81. Tampilkan semua permission file di /etc yang writable oleh other.
+82. Cek file dengan SUID/SGID aktif.
+83. Hapus semua file dengan permission 777.
+84. Audit sistem untuk user tanpa password.
+85. Audit semua file .sh yang world-writable.
+86. Buat banner login yang menampilkan peringatan.
+87. Cek integritas package dengan rpm atau dpkg.
+88. Simulasikan user mencoba login dengan password salah.
+89. Cek log gagal login dan dari IP mana asalnya.
+90. Blok IP tertentu pakai iptables atau firewalld.
+91. Buat aturan firewall untuk hanya membuka port 22 dan 80.
+92. Cek rule firewall yang aktif dan simpan ke file.
+93. Update semua paket sistem.
+94. Simulasikan update kernel dan cek efeknya.
+95. Buat snapshot filesystem menggunakan rsync atau LVM.
+96. Restore file backup dari .tar.gz.
+97. Buat SOP dokumentasi pemulihan sistem setelah crash.
+98. Tampilkan semua file config yang diubah 7 hari terakhir.
+99. Buat skrip untuk log semua login user harian ke file logins.log.
+100. Audit semua permission file .conf di /etc.

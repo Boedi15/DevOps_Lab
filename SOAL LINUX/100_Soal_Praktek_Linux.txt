@@ -6,9 +6,9 @@ jawab : touch /home/student/testdir/file1.txt
 4. Cari semua file .conf di direktori /etc.
 jawab : find /etc -name "*.conf"
 5. Ubah password user kamu sendiri.
-jawab : passwd user
+jawab : passwd
 6. Tampilkan semua file yang berawalan net dan berekstensi .cfg menggunakan wildcard.
-jawab : ls net*.net
+jawab : ls net*.cfg
 7. Gabungkan file a.txt dan b.txt menjadi ab.txt.
 jawab : cat a.txt b.txt > ab.txt
 8. Buat hard link dari /etc/passwd ke direktori home kamu.
@@ -19,7 +19,7 @@ jawab : ln -s /var/log/syslog /home/log_terbaru
 11. Ubah permission file test.txt menjadi 754.
 jawab : chmod 754 test.txt
 12. Ubah owner test.txt menjadi user budi dan group devops.
-jawab : chown devops test.txt
+jawab : chown budi:devops test.txt
 13. Berikan akses full ke user admin ke file /home/student/report.txt pakai ACL.
 jawab : setfacl -m u:admin:rwx /home/student/report.txt
 14. Gunakan man untuk mencari info tentang cut.
@@ -35,6 +35,9 @@ jawab : uptime | tee log.txt
 19. Jalankan dua perintah sekaligus: tampilkan tanggal dan hostname.
 jawab : date && hostname
 20. Buat script bash untuk mindahin semua .log ke folder backup/.
+#!/bin/bash
+mkdir -p backup
+mv *.log backup/
 21. Tampilkan 10 baris pertama file /var/log/syslog.
 jawab : head /var/log/syslog
 22. Tampilkan 10 baris terakhir dari file yang sama.
@@ -48,7 +51,7 @@ jawab : diff config1.conf config2.conf
 26. Kompres direktori /etc jadi .tar.gz.
 jawab : tar -czf etc.tar.gz /etc
 27. Ekstrak config.tar.gz ke direktori saat ini.
-jawab : tar -xzf ect.tar.gz /etc
+jawab : tar -xzf etc.tar.gz /etc
 28. Potong file log.txt jadi 0 byte dengan truncate.
 jawab : truncate -s 0 log.txt
 29. Gabungkan isi tiga file jadi gabungan.txt.
@@ -70,7 +73,7 @@ passwd devuser
 34. Tambah user itu ke grup sysadmin.
 jawab : usermod -aG sysadmin devuser
 35. Jalankan shutdown pakai sudo.
-jawab : sudo systectl shutdown
+jawab : sudo systemctl shutdown now
 36. Kirim pesan ke semua user login pakai wall.
 jawab : echo "Server down" | wall
 37. Jelaskan perbedaan AD, LDAP, OpenLDAP.
@@ -88,13 +91,16 @@ ps aux | grep httpd
 root        3172  0.0  0.1   6412  2176 pts/0    S+   15:24   0:00 grep --color=auto httpd
 kill -9 3172
 43. Buat cronjob: tampilkan date tiap jam ke log_time.txt.
-jawab : 0 * * * * log_time.txt
+jawab : 0 * * * * date >> log_time.txt
 44. Buat at job: jalanin backup.sh jam 22:00.
+at 22:00
+./backup.sh
 45. Lihat penggunaan disk dengan df -h.
 jawab :df -h
 46. Cek penggunaan RAM dengan free -h.
 jawab : free -h
 47. Shutdown sistem dalam 5 menit.
+jawab : shutdown -h +5
 48. Ganti hostname jadi server-lab.
 jawab : hostnamectl set-hostname server-lab
 49. Tampilkan info sistem dengan uname dan cat /etc/*release*.
@@ -129,17 +135,24 @@ jawab : sort /etc/passwd
 64. Kompres access.log pakai gzip.
 jawab : gzip access.log
 65. Ekstrak hasil.gz ke direktori kerja.
-jawab : gunzip hasil.gz /kerja
+jawab : gunzip hasil.gz
 66. Bandingkan a.txt dan b.txt pakai cmp.
-jawab : cmp a.tct b.txt
+jawab : cmp a.txt b.txt
 67. Tampilkan user dan shell dari /etc/passwd pakai awk.
 jawab : awk -F: '{print $1, $7}'
 68. Ubah umask default user jadi 0022.
 jawab : umask 0022
 69. Buat check_disk.sh untuk cek disk usage.
+#!/bin/bash
+df -h > disk_usage.txt
 70. Gunakan < untuk arahkan input file ke perintah sort.
+sort < input.txt
 71. Tulis file jaringan.txt berisi 5 baris config dengan vi.
+jawab :
+vi jaringan.txt
+# lalu isi 5 baris config
 72. Hapus baris kosong di notes.txt pakai sed.
+jawab : sed -1 '/^$/d' notes.txt
 73. Buat user tester dengan shell /bin/bash.
 jawab : useradd -s /bin/bash tester
 74. Buat grup cloudops dan masukkan tester ke situ.
@@ -149,11 +162,19 @@ usermod -aG cloudops tester
 75. Konfigurasi sudo agar tester hanya bisa jalanin systemctl.
 jawab : visudo
 76. Cek user login dan kirim pesan ke mereka pakai write.
+who
+write budi
+# lalu ketik pesannya, Ctrl+D untuk kirim
 77. Kirim pesan maintenance ke semua user pakai wall.
 jawab : echo "Maintenance" | wall
 78. Tampilkan hostname, arsitektur, kernel versi.
 jawab : hostname && arch && uname -r
 79. Rekam aktivitas terminal 1 menit pakai script.
+jawab :
+script aktivitas.txt
+# lakukan perintah
+sleep 60
+exit
 80. Jelaskan cara reset password root lewat single user mode.
 81. Gunakan dmesg untuk lihat log kernel saat boot.
 jawab : dmesg
@@ -162,27 +183,52 @@ jawab : iostat 1 5
 83. Tampilkan koneksi aktif pakai netstat.
 jawab : netstat
 84. Buat cronjob: hapus file log > 7 hari tiap jam 1 pagi.
+jawa : 0 1 * * * find /var/log -name "*.log" -mtime +7 -delete
 85. Buat at job: jalankan free -h jam 21:00.
+qt 21:00
+free -h
 86. Simpan hasil uptime ke uptime_report.txt.
-jawab : uptime > uptime 
+jawab : uptime > uptime_report.txt
 87. Ganti hostname pakai hostnamectl.
 jawab : hostnamectl set-hostname server
 88. Tampilkan isi PATH dan tambahkan /opt/bin.
+jawab :
+echo $PATH
+export PATH=$PATH:/opt/bin
 89. Tampilkan semua environment variable aktif.
+jawab : printenv atau env
 90. Bandingkan uname -r dengan cat /proc/version.
+jawab : uname -r vs cat /proc/version
 91. Hitung baris dengan 404 di access.log pakai awk.
 jawab : awk '$0 ~ /404/' access.log | wc -l
 92. Buat monitor.sh yang restart ssh jika mati.
+jawab :
+#!/bin/bash
+if ! systemctl is-active --quiet sshd; then
+  systemctl restart sshd
+fi
 93. Ubah permission script.sh jadi hanya owner bisa eksekusi.
 jawab : chmod 700 script.sh
 94. Buat folder /home/user/project hanya bisa diakses owner.
-jawab : chmod 600 /home/user/project
+jawab : chmod 700 /home/user/project
 95. Buat ACL: user auditor bisa baca laporan.txt saja.
 jawab : setfacl -m u:auditor:r laporan.txt
 96. Simulasikan shutdown dan batalkan sebelum jalan.
+jawab :
+shutdown -h +10
+shutdown -c
 97. Backup /etc jadi .tar.gz ke direktori home.
-jawab : 
+jawab : tar -czf /home/$USER/etc_backup.tar.gz /etc
 98. Buat symlink /usr/bin/python3 ke direktori kerja.
+jawab : ln -s /usr/bin/python3 ./python3_symlink
 99. Bandingkan original.txt dan backup.txt pakai diff.
+jawab : diff original.txt backup.txt
 100. Tulis langkah lengkap: buat user baru + kasih hak sudo + uji aksesnya.
+jawab :
+useradd sysadmin
+passwd sysadmin
+usermod -aG sudo sysadmin
+# Uji akses:
+su - sysadmin
+sudo ls /root
 

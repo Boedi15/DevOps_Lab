@@ -1,31 +1,9 @@
 50 SOAL PRAKTIK LINUX UNTUK SYSOPS
 
 1. Tampilkan isi direktori root (/) dengan informasi detail per file.
-[root@centos ~]# ls -l /
-total 2097224
-dr-xr-xr-x.   2 root    root          4096 Jun 25  2024 afs
-lrwxrwxrwx.   1 root    root             7 Jun 25  2024 bin -> usr/bin
-dr-xr-xr-x.   5 root    root          4096 Jul  9 12:24 boot
-drwxr-xr-x.  17 root    root          2980 Jul  9 12:24 dev
-drwxr-xr-x.  88 root    root          4096 Jul  9 12:29 etc
-drwxr-xr-x.   3 root    ops           4096 Jul  9 12:29 home
-lrwxrwxrwx.   1 root    root             7 Jun 25  2024 lib -> usr/lib
-lrwxrwxrwx.   1 root    root             9 Jun 25  2024 lib64 -> usr/lib64
-drwx------.   2 root    root         16384 Apr 28 04:12 lost+found
-drwxr-xr-x.   2 root    root          4096 Jun 25  2024 media
-drwxr-xr-x.   2 root    root          4096 Jun 25  2024 mnt
-drwxr-xr-x.   2 root    root          4096 Jun 25  2024 opt
-dr-xr-xr-x. 145 root    root             0 Jul  9 12:24 proc
-dr-xr-x---.   4 root    root          4096 Jul  8 13:25 root
-drwxr-xr-x.  28 root    root           840 Jul  9 12:24 run
-lrwxrwxrwx.   1 root    root             8 Jun 25  2024 sbin -> usr/sbin
-drwxr-xr-x.   2 root    root          4096 Jun 25  2024 srv
--rw-------.   1 root    root    2147483648 Apr 28 04:14 swapfile
-dr-xr-xr-x.  13 root    root             0 Jul  9 12:24 sys
-drwxrwxrwt.  11 root    root          4096 Jul  9 12:29 tmp
-drwxr-xr-x.  12 root    root          4096 Apr 28 04:13 usr
-drwxrwxr-x.   2 vagrant vagrant       4096 Jun  7 13:58 vagrant
-drwxr-xr-x.  20 root    root          4096 Jun 11 12:59 var
+jawab : 
+cd /
+ls -l
 
 2. Buat direktori dengan nama "backup_daily" di dalam /home kamu.
 mkdir /home/backup_daily

@@ -1,0 +1,259 @@
+✅ Bagian 1: Navigasi & File System (1–20)
+
+Tampilkan isi dari direktori root (/).
+jawab :
+cd /
+ls -l
+.   afs  boot  etc   lib    lost+found  mnt  proc  run   srv       sys  usr      var
+..  bin  dev   home  lib64  media       opt  root  sbin  swapfile  tmp  vagrant
+
+Masuk ke direktori /etc dan tampilkan semua file di dalamnya.
+jawab :
+cd /etc
+ls -a
+
+Buat direktori sysops_diary di dalam home direktori.
+jawab : mkdir /home/sysops_diary
+
+Buat file kosong bernama notes.txt di dalam sysops_diary.
+jawab : touch /home/sysops_diary/notes.txt
+
+Salin file /etc/passwd ke sysops_diary.
+jawab : cp /etc/passwd /home/sysops_diary
+
+Pindahkan file notes.txt ke direktori /tmp.
+jawab : mv note.txt /tmp
+
+Hapus file notes.txt dari /tmp.
+jawab : rm -rf /tmp/notes.txt
+
+Tampilkan path absolut dari direktori kerja sekarang.
+jawab : /home/sysops_diary
+
+Tampilkan semua file tersembunyi di direktori home.
+jawab : ls -a /home
+
+Buat direktori /home/backup/sysops/logs dalam satu perintah.
+jawab : mkdir -p /home/backup/sysops/logs
+
+Gunakan wildcard untuk tampilkan file .conf di /etc.
+jawab : find /etc -name "*.conf"
+
+Cari file fstab dari direktori root.
+jawab : find / -type f -iname "fstab" 2>dev/null
+
+Gunakan locate untuk cari file hosts.
+jawab : locate hosts
+
+Buat softlink dari /var/log/syslog ke home: log_link.
+jawab : ln -s /var/log/syslog /home/log_link
+
+Buat hardlink dari /etc/hosts ke home: hosts_hard.
+jawab : ln /etc/hosts /home/host_hard
+
+Tampilkan inode number dari /etc/passwd.
+jawab : ls -i /etc/passwd
+
+Gabungkan isi /etc/hostname & /etc/hosts ke gabungan.txt.
+jawab : cat /etc/hostname /etc/hosts > gabungan.txt
+
+Pecah gabungan.txt menjadi 2 bagian, 10 baris per bagian.
+jawab : split -l 10 gabungan.txt bagian_
+
+Redirect output uname -a ke system_info.txt pakai tee.
+jawab : uname -a | tee system_info.txt
+
+Tampilkan 10 baris pertama file /etc/passwd.
+jawab : head /etc/passwd
+
+21. Tampilkan permission dari /etc/passwd.
+jawab : ls -l /etc/passwd
+
+22. Ubah permission system_info.txt jadi rw- --- ---.
+jawab : chmod 600 system_info.txt
+
+23. Tambahkan execute permission ke semua user.
+jawab : chmod a+x nama_file
+
+24. Ganti owner file system_info.txt ke user nobody.
+jawab : chown nobody system_info.txt
+
+25. Ganti group file ke nogroup.
+jawab : chgrp nogroup nama_file
+
+26. Tambah ACL supaya user tester bisa baca file.
+jawab : setfacl -m u:tester:r nama_file
+
+27. Hapus ACL user tester.
+jawab : setfacl -x u:tester nama_file
+
+28. Buat permission_test.txt, ubah permission ke 644.
+jawab : chmod 644 permission_test.txt
+
+29. Tampilkan permission dalam format numerik.
+jawab : stat -c "%a %n" nama_file
+
+30. Atur umask agar file baru default 600.
+jawab : umask 077
+
+31. Buat direktori dan set setgid padanya.
+jawab :
+mkdir /home/devops
+chmod 2700 /home/devops
+
+32. Cek ACL dari /etc/shadow.
+jawab : getfacl /etc/shadow
+
+33. Ubah ACL agar group wheel bisa write ke file.
+jawab : setfacl -m g:wheel:rw nama_file
+
+34. Cek apakah /tmp punya sticky bit.
+jawab : ls -ld /tmp
+
+35. Tambahkan sticky bit ke test_tmp.
+jawab : chmod +t nama_direktori
+
+36. Atur permission jadi rwxr-xr--.
+jawab : chmod 754 nama_file
+
+37. Tampilkan default ACL dari /home.
+jawah : getfacl /home
+
+38. Tambah default ACL ke backup agar user ops bisa baca.
+jawab : setfacl -d -m u:ops::r backup
+
+39. Hapus semua ACL dari permission_test.txt.
+jawab : setfacl -b permission_test.txt
+
+40. Batasi akses direktori sysops_diary hanya ke owner.
+jawab : chmod 700 sysops_diary
+
+✅ Bagian 3: Text Processing (41–60)
+41. Grep baris dengan “sudo” di /etc/group.
+jawab : grep -i sudo /etc/group
+
+42. Hitung jumlah baris /etc/passwd.
+jawab : wc -l /etc/passwd
+
+43. Sort isi file /etc/passwd.
+jawab : sort /etc/passwd
+
+44. Grep user dengan shell /bin/bash.
+jawab : grep -i user /bin/bash
+
+45. Awk untuk cetak kolom 1 dan 3 dari /etc/passwd.
+jawab : awk -F ':' '{print $1, $3}' /etc/passwd
+
+46. Cut kolom kedua pakai delimiter :.
+jawab :cut -d: -f2 nama_file
+
+47. Gabung dua file jadi output.txt.
+jawab : cat file1.txt file2.txt > output.txt
+
+48. Hapus duplikat baris dengan uniq.
+jawab : sort nama_file | uniq
+
+49. Bandingkan dua file dengan diff.
+jawab : diff file1.txt file2.txt
+
+50. Tampilkan jumlah kata & karakter /etc/passwd.
+jawab : wc -w -m /etc/passwd
+
+51. Kompres gabungan.txt pakai gzip.
+jawab : gzip gabungan.txt
+
+52. Unzip file gabungan.txt.gz.
+jawab : gunzip gabungan.txt.gz
+
+53. Tar direktori sysops_diary ke arsip.tar.gz.
+jawab : tar -czf arsip.tar.gz /home/sysops_diary
+
+54. Ekstrak arsip ke /tmp.
+jawab : tar -xzf arsip.tar.gz -C /tmp
+
+55. Truncate file besar jadi 0 byte.
+jawab : truncate -s 0 nama_file
+
+56. Split data.csv jadi file kecil.
+jawab : split -l 10 data.csv bagian_
+
+57. Gabung hasil split jadi satu file besar.
+jawab : cat prefix* > gabungan.txt prefix
+
+58. Gunakan more untuk lihat isi file besar.
+jawab : more nama_file
+
+59. Gunakan less navigasi isi /var/log/syslog.
+jawab : less /var/log/syslog
+
+60. Redirect date ke file waktu.txt.
+jawab : date > waktu.txt
+
+61. Buat user juniorops.
+jawab : useradd juniorops
+
+62. Set password juniorops.
+jawab : passwd juniorops
+
+63. Tambah juniorops ke group wheel.
+jawab : usermod -aG wheel juniorops
+
+64. Tampilkan user login saat ini.
+jawab : who
+
+65. Ganti shell default user ke /bin/bash.
+jawab : chsh -s /bin/bash username
+
+66. Hapus user & home dir-nya.
+jawab : userdel -r nama_user
+
+67. Buat group devops.
+jawab : groupadd devops
+
+68. Tambahkan user kamu ke devops.
+jawab : usermod -aG devops user
+
+69. Ganti password user kamu.
+jawab : passwd nama_user
+
+70. Kirim pesan ke semua user pakai wall.
+jawab : echo "server akan maintenance" | wall
+
+71. Kirim pesan ke user tertentu pakai write.
+jawab : write nam_user
+
+72. Tampilkan proses yang sedang berjalan.
+jawab : ps aux atau ps -ef
+
+73. Tampilkan proses milik user tertentu.
+jawab : ps aux | grep pts
+
+74. Kill proses berdasarkan PID.
+jawab : kill -9 no_pid
+
+75. Jalankan script.sh di background.
+76. Cek status background process.
+77. Gunakan nice untuk proses prioritas rendah.
+78. Pantau CPU & RAM pakai top.
+79. Buat cronjob harian untuk backup.sh.
+80. Cronjob mingguan untuk restart apache2.
+81. Cek penggunaan disk dengan df -h.
+82. Cek RAM dengan free -m.
+83. Info CPU dengan lscpu.
+84. Lihat network interface aktif.
+85. Info kernel pakai uname -r.
+86. Lihat isi /proc/cpuinfo.
+87. Jalankan dmesg > dmesg_log.txt.
+88. Pantau I/O device dengan iostat.
+89. Cek port aktif dengan netstat -tuln.
+90. Status service ssh dengan systemctl.
+91. Restart cron service.
+92. Shutdown sistem.
+93. Reboot sistem.
+94. Lihat hostname saat ini.
+95. Ubah hostname ke sysops-server.
+96. Lihat info OS sekarang.
+97. Jalankan sosreport.
+98. Reset password root via single user mode.
+99. Buat log_check.sh untuk cek log error.
+100. Tambahkan log_check.sh ke cron tiap jam.
