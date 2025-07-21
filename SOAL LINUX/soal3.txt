@@ -235,24 +235,34 @@ jawab : kill -9 no_pid
 76. Cek status background process.
 77. Gunakan nice untuk proses prioritas rendah.
 78. Pantau CPU & RAM pakai top.
+jawab : top
 79. Buat cronjob harian untuk backup.sh.
 80. Cronjob mingguan untuk restart apache2.
 81. Cek penggunaan disk dengan df -h.
 82. Cek RAM dengan free -m.
+jawab : free -m
 83. Info CPU dengan lscpu.
+
 84. Lihat network interface aktif.
 85. Info kernel pakai uname -r.
 86. Lihat isi /proc/cpuinfo.
+jawab : cat /proc/cpuinfo
 87. Jalankan dmesg > dmesg_log.txt.
 88. Pantau I/O device dengan iostat.
+jawab : iostat
 89. Cek port aktif dengan netstat -tuln.
+jawab : ss -tuln
 90. Status service ssh dengan systemctl.
+jawab : systemctl status sshd
 91. Restart cron service.
 92. Shutdown sistem.
 93. Reboot sistem.
 94. Lihat hostname saat ini.
+jawab : hostname
 95. Ubah hostname ke sysops-server.
+jawab : hostnamectl set-hostname sysops-server
 96. Lihat info OS sekarang.
+jawab : cat /etc/os-release
 97. Jalankan sosreport.
 98. Reset password root via single user mode.
 99. Buat log_check.sh untuk cek log error.

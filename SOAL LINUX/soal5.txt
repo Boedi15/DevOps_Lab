@@ -120,7 +120,10 @@ cat /etc/passwd | grep apache
 39. Gunakan tmux untuk membuat sesi baru bernama "monitoring".
 40. Dalam sesi tmux, jalankan `top` untuk monitoring real-time.
 41. Cek partisi disk dan tampilkan hanya ukuran dan mount point-nya.
+
 42. Tampilkan statistik IO disk dengan interval 1 detik sebanyak 3 kali.
+jawab : iostat 1 3
+
 43. Cek hostname saat ini dan catat di file /tmp/hostname.txt.
 hostname > /tmp/hostname.txt
 

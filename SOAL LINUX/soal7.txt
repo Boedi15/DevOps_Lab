@@ -1,0 +1,145 @@
+Buat direktori bernama backup di dalam direktori /opt.
+jawab : mkdir /opt/backup
+
+Salin seluruh isi dari direktori /etc ke dalam direktori /opt/backup.
+jawab : cp /etc /opt/backup
+
+Ganti nama file log.txt menjadi log_baru.txt.
+jawab : mv log.txt log_baru.txt
+
+Hapus direktori /opt/backup beserta seluruh isinya.
+jawab : rm -rf /opt/backup
+
+Buat file baru bernama data.log di dalam direktori /var/log.
+jawab : touch /var/log/data.log
+
+Ubah permission file data.log agar hanya bisa dibaca oleh semua user.
+jawab : chmod 400 data.log
+
+Tampilkan ukuran file data.log dalam format yang mudah dibaca.
+jawab : du -h /var/log/data.log
+
+Pindahkan semua file .log dari direktori /var/log ke /tmp.
+jawab : mv /var/log /tmp
+
+Tampilkan semua file di direktori /var/log yang ukurannya lebih dari 1MB.
+jawab :
+
+Buat file kosong test.txt, lalu tambahkan teks “Hello SysOps!” ke dalamnya.
+jawab : echo "Hello SysOps" > test.txt
+
+Buat user baru bernama devops.
+jawab : useradd devops
+
+Tambahkan user devops ke grup wheel.
+jawab : usermod -aG wheel devops
+
+Ganti shell default user devops menjadi /bin/bash.
+jawab : chsh /bin/bash
+
+Lihat semua user yang memiliki UID di atas 1000.
+jawab : 
+
+Ubah owner file test.txt menjadi user devops.
+jawab : chown devops test.txt
+
+Ubah permission direktori /opt agar hanya bisa diakses oleh owner-nya.
+jawab : chmod 700 /opt
+
+Hapus user devops beserta home directory-nya.
+jawab : userdel -r devops
+
+Tampilkan grup yang dimiliki oleh user root.
+jawab : cat /etc/group | grep root atau id root
+
+Tambahkan user devops ke grup tambahan docker.
+jawab : usermod -aG docker devops
+
+Cek apakah user devops sudah bisa login (aktif dan tidak terkunci).
+jawab :
+
+Cek versi kernel yang digunakan saat ini.
+jawab : uname -r
+
+Tampilkan waktu sistem saat ini dalam format lengkap.
+jawab : date
+
+Tampilkan informasi CPU.
+jawab : iostat
+
+Tampilkan informasi total memori dan swap.
+jawab : free -h
+
+Tampilkan hostname dan IP address sistem.
+jawab : hostname && ip a
+
+Cek status dari sistem apakah dalam kondisi idle, busy, atau overutilized.
+jawab : htop
+
+Ubah hostname sistem menjadi node01.
+jawab : hostnamectl set-hostname node01
+
+Cek apakah sistem menggunakan UEFI atau BIOS.
+jawab : sudo dnf install efibootmgr
+efibootmgr
+
+Tampilkan semua informasi hardware (gunakan lshw atau inxi).
+jawab : lshw
+
+Tampilkan waktu boot terakhir sistem.
+jawab : 
+
+Tampilkan semua service yang dalam keadaan aktif.
+jawab : systemctl list-units
+
+Cek status service chronyd.
+jawab : systemctl status chronyd
+
+Restart service network.
+jawab : systemctl restart network
+
+Matikan service cups agar tidak berjalan otomatis saat boot.
+jawab : systemctl disable cups
+
+Jalankan kembali service cups.
+jawab : systemctl enable cups
+
+Tampilkan proses dengan penggunaan memori paling besar.
+jawab : 
+
+Kill proses yang menjalankan perintah sleep.
+jawab : ps aux | grep sleep
+root        6254  0.0  0.1   6412  2176 pts/0    S+   13:59   0:00 grep --color=auto sleep
+kill -9 6254
+
+Tampilkan semua proses milik user root.
+jawab : ps aux | grep root
+
+Jalankan proses sleep 60 di background dan tampilkan PID-nya.
+
+Cek log dari service sshd 10 menit terakhir.
+
+Tampilkan semua interface jaringan beserta IP-nya.
+jawab : ss -tuln
+
+Ping ke 8.8.8.8 sebanyak 5 kali.
+jawab : ping 8.8.8.8 -c 5
+
+Cek apakah port 22 terbuka di sistem.
+
+Tampilkan route default sistem.
+
+Lihat DNS yang digunakan oleh sistem.
+
+Download file dari URL https://example.com/file.txt menggunakan wget.
+jawab : wget https://example.com/file.txt
+
+Tes koneksi HTTP ke google.com menggunakan curl.
+
+Periksa koneksi keluar pada port 80 menggunakan telnet atau nc.
+
+Cek siapa yang sedang login di sistem saat ini.
+jawab : who
+
+Tampilkan riwayat login terakhir di sistem.
+jawab : last

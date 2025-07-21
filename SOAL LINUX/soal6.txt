@@ -1,0 +1,152 @@
+Tampilkan hostname dari sistem.
+jawab :hostname
+
+Ubah hostname sistem menjadi server-belajar.
+jawab : hostnamectl set-hostname server-belajar
+
+Tampilkan informasi kernel yang sedang digunakan.
+jawab : uname -r
+
+Lihat semua user yang terdaftar di sistem.
+jawab : cut -d: -f1 /etc/passwd
+
+Buat user baru dengan nama belajar.
+jawab: useradd belajar
+
+Ubah password user belajar.
+jawab : passwd belajar
+
+Hapus user belajar dari sistem.
+jawab : userdel -r belajar
+
+Cek disk usage di semua partisi.
+jawab : df -h
+
+Tampilkan isi direktori home dari user saat ini.
+jawab : ls ~
+
+Buat direktori baru bernama latihan di dalam home.
+jawab : mkdir ~/latihan
+
+Pindah ke direktori latihan.
+jawab : cd ~/latihan
+
+Buat file kosong bernama contoh.txt di direktori latihan.
+jawab : touch ~/latihan/contoh.txt
+
+Isi file contoh.txt dengan teks "Ini latihan Linux dasar".
+jawab : echo "Ini latihan Linux dasar" > ~/latihan/contoh.txt
+
+Tampilkan isi file contoh.txt.
+jawab : cat ~/latihan/contoh.txt
+
+Salin file contoh.txt menjadi copy_contoh.txt.
+jawab : cd ~/latihan && cp contoh.txt copy_contoh.txt
+
+Pindahkan file copy_contoh.txt ke direktori /tmp.
+jawab: mv ~/latihan/copy_contoh.txt /tmp
+
+Hapus file copy_contoh.txt dari /tmp.
+jawab : rm -rf /tmp/copy_contoh.txt 
+
+Tampilkan semua file termasuk yang tersembunyi di direktori home.
+jawab : ls -a ~
+
+Ubah permission file contoh.txt menjadi hanya bisa dibaca oleh pemiliknya.
+jawab : chmod 400 contoh.txt
+
+Ubah owner file contoh.txt menjadi user root.
+jawab : chown root contoh.txt
+
+Tampilkan proses yang sedang berjalan di sistem.
+jawab : ps aux
+
+Cari proses yang menjalankan nama sshd.
+jawab : ps aux | grep sshd
+
+Matikan proses berdasarkan PID yang ditentukan.
+jawab :
+ps aux | grep sshd
+root         570  0.0  0.5  17484  9856 ?        Ss   05:40   0:00 sshd: /usr/sbin/sshd -D -u0 [listener] 0 of 10-100 startups
+kill -9 570
+
+Tampilkan semua service yang aktif di sistem.
+jawab : systemctl list-units --type=service --state=running
+
+Restart service ssh.
+jawab : systemctl restart sshd
+
+Cek status service nginx.
+jawab : systemctl status nginx
+
+Install aplikasi htop.
+jawab : sudo dnf install htop
+
+Uninstall aplikasi htop.
+jawab : sudo dnf remove htop
+
+Tampilkan semua package yang sudah terinstall.
+jawab : sudo dnf list installed
+
+Cek IP address dari server.
+jawab :ip a
+
+Cek koneksi ke 8.8.8.8 menggunakan perintah ping.
+jawab : ping 8.8.8.8
+
+Download file dari internet menggunakan wget.
+jawab : wget [url] atau wget https://example.com/file.zip
+
+Lihat isi file log /var/log/syslog.
+jawab : cat /var/log/syslog
+
+Cek waktu sistem saat ini.
+jawab : date
+
+Ubah timezone sistem menjadi Asia/Jakarta.
+jawab : timedatectl set-timezone Asia/Jakarta
+
+Jadwalkan cronjob yang menampilkan waktu ke file setiap 5 menit.
+jawab :*/5 * * * * date >> /path/file.log
+
+Tampilkan semua cronjob dari user saat ini.
+jawab : crontab -l
+
+Buat file arsip dari direktori latihan menggunakan tar.
+jawab : tar -zcf latihan.tar.gz ~/latihan
+
+Ekstrak file tar hasil arsip tersebut.
+jawab : tar -zxf latihan.tar.gz
+
+Gunakan grep untuk mencari kata error pada file log.
+jawab : grep -i error log
+
+Cari file dengan nama contoh.txt di seluruh sistem.
+jawab : find / -name "contoh.txt"
+
+Tampilkan 10 baris terakhir dari file log.
+jawab : tail log
+
+Tampilkan 10 baris pertama dari file log.
+jawab : head log
+
+Gunakan sed untuk mengganti kata Linux menjadi SysOps dalam file.
+jawab : sed -i 's/Linux/SysOps/g' file
+
+Gunakan awk untuk menampilkan kolom ke-1 dan ke-3 dari file /etc/passwd.
+jawab : awk -F: '{print $1, $3}' /etc/passwd
+
+Gunakan perintah top dan jelaskan outputnya.
+jawab : top
+
+Gunakan df untuk melihat penggunaan disk.
+jawab : df -h
+
+Gunakan du untuk melihat ukuran folder latihan.
+jawab : du -h ~/latihan
+
+Cek penggunaan memori dengan free.
+jawab : free -m
+
+Gunakan uname untuk melihat info sistem.
+jawab : uname
