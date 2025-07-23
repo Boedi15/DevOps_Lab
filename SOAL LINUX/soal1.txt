@@ -1,4 +1,7 @@
 1. Login ke sistem Linux menggunakan PuTTY dan tampilkan hostname dari sistem tersebut.
+login putty
+hostname
+
 2. Buat 3 direktori baru di dalam /home dengan nama `project1`, `project2`, dan `project3`.
 mkdir -p /home/project1 /home/project2 /home/project3
 
@@ -43,6 +46,13 @@ tar -czf project1.tar.gz -C /home project1
 tar -xzf project1.tar.gz -C /opt
 
 16. Buat script bash sederhana yang mengecek apakah sebuah direktori ada atau tidak.
+#!/bin/bash
+if [ -d "$1"]; then
+	echo "Direktori $1 ada."
+else
+	echo "Direktori $1 tidak ada."
+fi
+
 17. Gunakan `chmod` untuk memberi permission `rwxr-xr--` ke file `data.txt`.
 chmod 750 data.txt
 
@@ -81,10 +91,15 @@ sort data.txt
 setfacl -m u:tester:rw data.txt
 
 29. Simulasikan perintah `tee` untuk menyimpan output ke dua file sekaligus.
+echo "Log ini ke dua gfile" | tee file1.txt file2.txt
+
 30. Gunakan `awk` untuk menampilkan field ke-1 dan ke-3 dari `/etc/passwd`.
 awk -F: '{print $1, $3}' /etc/passwd
 
 31. Buat dan jalankan script untuk menampilkan free memory dan write ke file `/tmp/meminfo.txt`.
+#!/bin/bash
+free -h > /tmp/meminfo.txt
+
 32. Gunakan `hostnamectl` untuk mengganti hostname menjadi `server-latihan`.
 hostnamectl set-hostname server-latihan
 
@@ -93,6 +108,10 @@ hostnamectl set-hostname server-latihan
 systemctl reboot
 
 35. Buat script yang menerima input dari user dan print kembali.
+#!/bin/bash
+read -p "masukan nama Anda : " nama
+echo "Hello, $nama!"
+
 36. Gunakan `vi` untuk membuat file baru dan tambahkan 3 baris teks manual.
 vi data.txt
 baris 1
@@ -100,6 +119,13 @@ baris 2
 baris 3
 
 37. Buat script dengan kondisi if-else untuk mengecek apakah file ada.
+#!/bin/bash
+if [ -f "$1"]; then
+	echo "file $1 ditemukan"
+else
+	echo "file $1 tidak ditemukan"
+fi
+
 38. Cek informasi hardware menggunakan `dmidecode`.
 dmidecode
 
@@ -113,6 +139,8 @@ ls -l /etc | grep ^d
 echo $PATH > path.txt
 
 42. Jalankan perintah `script` untuk merekam sesi terminal dan simpan ke `/tmp/sesi.txt`.
+script /tmp/sesi.txt
+
 43. Buat 2 user, masing-masing dengan direktori home dan password sendiri.
 useradd user1
 passwd user1
@@ -127,9 +155,22 @@ userdel tester
 su - user
 
 46. Buat file dengan `truncate` sebesar 100MB.
+truncate -s 100M file-100MB.bin
+
 47. Gunakan `wall` untuk broadcast pesan ke semua user.
 echo "server akan mati dalam 10 menit" | wall
 
 48. Bandingkan command `who`, `w`, dan `users`.
+# who: tampilkan siapa yang login sekarang
+# w: tambahan info load, jam, idle, dll
+# users: hanya username yg sedang login, satu baris
+
+who
+w
+users
+
 49. Jalankan `tmux` dan buat 2 jendela di dalamnya.
+tmux
+# Tekan: Ctrl+b lalu tekan c → untuk jendela baru
+
 50. Export sebuah environment variable lalu gunakan dalam script bash.

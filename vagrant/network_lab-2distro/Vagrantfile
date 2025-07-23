@@ -1,0 +1,26 @@
+Vagrant.configure("2") do |config|
+
+  # Ubuntu Focal (20.04)
+  config.vm.define "ubuntu-server" do |ubuntu|
+    ubuntu.vm.box = "ubuntu/focal64"
+    ubuntu.vm.hostname = "ubuntu-server"
+    ubuntu.vm.network "private_network", ip: "192.168.56.10"
+    ubuntu.vm.provider "virtualbox" do |vb|
+      vb.memory = 1024
+      vb.cpus = 1
+    end
+  end
+
+  # CentOS Stream 9
+  config.vm.define "centos-server" do |centos|
+    centos.vm.box = "centos/stream9"
+    centos.vm.hostname = "centos-server"
+    centos.vm.network "private_network", ip: "192.168.56.11"
+    centos.vm.provider "virtualbox" do |vb|
+      vb.memory = 1024
+      vb.cpus = 1
+    end
+  end
+
+end
+

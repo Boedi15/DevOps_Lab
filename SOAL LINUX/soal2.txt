@@ -1,30 +1,97 @@
 1. Buat partisi baru menggunakan fdisk di device /dev/sdb.
+jawab :
+fdisk /dev/sdb
+Langkah: tekan n → p → partisi nomor → enter → enter → w untuk simpan.
+
 2. Format partisi /dev/sdb1 ke ext4 dan mount ke /mnt/data.
+jawab :
+mkfs.ext4 /dev/sdb1
+mount /dev/sdb1 /mnt/data
+
 3. Tambahkan mount entry di /etc/fstab agar otomatis mount saat boot.
+jawab : echo '/dev/sdb1 /mnt/data ext4 defaults 0 2' >> /etc/fstab
+
 4. Tampilkan penggunaan disk dengan format human readable.
 jawab : df -h
+
 5. Temukan file lebih besar dari 500MB di /var.
+jawab : find /var -type f -size 500M
+c = byte
+k = kilobyte
+M = megabyte
+G = gigabyte
+
 6. Buat skrip bash untuk backup /etc ke direktori /backup harian.
+jawab :
+#!/bin/bash
+tar -czf /backup/etc-$(date +%F).tar.gz /etc
+
 7. Cek inode usage dari partisi root (/).
 jawab : df -i /
+
 8. Buat direktori dengan permission 750 dan ACL full akses ke user audit.
 jawab :
 mkdir -p /home/shared
 chmod 750 /home/shared
 setfacl -m u:audit:rwx /home/shared
+
 9. Gunakan du untuk melihat penggunaan space per folder dalam /var.
 jawab : du /var
+
 10. Cek filesystem error pada /dev/sda1 menggunakan fsck.
+jawab : fsck /dev/sda1
+
 11. Buat dan mount loop device dari file kosong 1GB.
+jawab :
+dd if=/dev/zero of=loopfile.img bs=1M count=1024
+losetup /dev/loop0 loopfile.img
+mkfs.ext4 /dev/loop0
+mount /dev/loop0 /mnt
+
 12. Gunakan find untuk mencari file yang tidak diakses selama 30 hari.
+jawab : find / -type f -atime +30
+
 13. Hitung jumlah file .log di seluruh sistem.
+jawab : find / -type f -name "*.log" | wc -l
+
 14. Hapus semua file .tmp di /tmp yang lebih dari 1 hari.
+jawab : find /tmp -name "*.tmp" -mtime +1 -delete
+-mtime +1 artinya file dimodifikasi lebih dari 1 hari lalu.
+-delete untuk langsung hapus.
+
 15. Monitor space root partition dan kirim alert jika > 90%.
+jawab :
+#!/bin/bash
+usage=$(df / | awk 'NR==2 {print $5}' | sed 's/%//')
+if [ "$usage" -gt 90 ]; then
+   echo "Disk usage on / is ${usage}%!" | mail -s "Disk Alert" kamu@email.com
+fi
+
 16. Simpan output df -h dan du -sh * dalam satu file laporan.
+jawab :
+df -h > laporan.txt
+du -sh >> laporan.txt
+
 17. Buat script untuk sync direktori /data ke /backup/data.
+#!/bin/bash
+rsync -av /data/ /backup/data/
+-a = archive mode, -v = verbose. Pastikan /backup/data sudah ada.
+
 18. Tambahkan label pada filesystem ext4 baru.
+jawab : e2label /dev/sdb1 DATA_DISK
+Bisa dicek pakai e2label /dev/sdb1.
+
 19. Gunakan lsattr dan chattr untuk mengunci file agar tidak bisa dihapus.
+jawab :
+chattr +i penting.txt
+lsattr penting.txt
+File dengan attribute i tidak bisa dihapus/diedit bahkan oleh root kecuali +i dihapus.
+
 20. Temukan file symlink yang rusak di direktori home user.
+jawab :
+find /home -xtype l
+-xtype l akan menangkap symlink rusak (broken link).
+
 21. Buat user baru dan ubah default shell jadi /bin/zsh.
 jawab : useradd -s /bin/zsh user
 22. Cek user aktif saat ini dan kapan terakhir login.
