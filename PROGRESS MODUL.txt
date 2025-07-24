@@ -62,4 +62,8 @@ Terminal control keys
 Terminal commands (clear,exit, script)
 Recover root password
 Environment Variables
+Bash Scripting
+Networking
+Services
+System Update
 
