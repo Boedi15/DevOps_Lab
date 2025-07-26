@@ -1,0 +1,106 @@
+⚙️ Bagian 1: Dasar-Dasar IP & Interface (ifconfig/ip/hostname)
+Tampilkan semua interface jaringan yang aktif di sistem kamu.
+jawab : ip -brief link show up
+
+Tampilkan alamat IP dari interface eth0 menggunakan ip command.
+jawab : ip -4 addr show dev eth0
+
+Ubah IP address dari eth0 menjadi 192.168.10.100 dengan subnet /24 (pakai ip command).
+
+Ubah hostname dari sistem Linux kamu menjadi server-belajar.
+
+Tampilkan informasi routing default dari sistem kamu.
+
+Set default gateway ke 192.168.10.1 menggunakan ip route.
+
+Tambahkan alamat IP tambahan (alias) ke interface eth0 dengan IP 192.168.10.101.
+
+Tampilkan MAC address dari semua interface.
+
+Disable sementara interface eth0, lalu aktifkan lagi.
+
+Konfigurasikan DNS resolver sementara di file resolv.conf.
+
+🌐 Bagian 2: Tes Koneksi dan Troubleshooting (ping/traceroute/nslookup)
+Ping ke 8.8.8.8 dan amati hasilnya.
+
+Lakukan ping ke google.com dan jelaskan perbedaan hasilnya dengan nomor 11.
+
+Gunakan traceroute untuk mengetahui jalur menuju google.com.
+
+Coba nslookup untuk domain openai.com, tampilkan IP-nya.
+
+Gunakan dig untuk melihat record MX dari gmail.com.
+
+Jalankan host untuk melihat detail dari domain github.com.
+
+Simulasikan DNS failure dengan mengedit resolv.conf, lalu perbaiki lagi.
+
+Matikan default gateway, lalu tes ping ke luar. Apa yang terjadi?
+
+Tes koneksi TCP ke port tertentu (misalnya port 80 di google.com) pakai telnet atau nc.
+
+Cek open port di localhost menggunakan netstat atau ss.
+
+🔁 Bagian 3: DHCP, Static IP & Network Manager
+Konfigurasikan interface jadi DHCP menggunakan nmtui atau nmcli.
+
+Konfigurasikan interface jadi static IP via NetworkManager CLI.
+
+Cek apakah interface mendapatkan IP dari DHCP.
+
+Simulasikan perubahan IP secara langsung dan amati hasilnya.
+
+Buat file konfigurasi static IP untuk interface eth0 di distro berbasis Debian.
+
+Buat file konfigurasi static IP untuk interface eth0 di distro berbasis RHEL/CentOS.
+
+Restart service networking dan cek apakah IP tetap sesuai.
+
+Matikan dan nyalakan ulang interface dari konfigurasi di /etc/network/interfaces (Debian-style).
+
+Baca log DHCP lease di /var/lib/dhcp/ atau pakai journalctl.
+
+Konfigurasikan DNS permanen via NetworkManager.
+
+🔐 Bagian 4: Firewall & Security Jaringan
+Cek status firewall di sistem menggunakan ufw atau firewalld.
+
+Allow koneksi SSH dari semua IP pakai ufw.
+
+Deny koneksi HTTP (port 80) dari IP tertentu.
+
+Tambahkan rule di iptables untuk drop semua koneksi ke port 23.
+
+Buat rule iptables untuk allow hanya koneksi ke port 22 dan 443.
+
+Reset semua rules iptables ke default.
+
+Simulasikan pemblokiran ICMP (ping) ke server kamu.
+
+Buat log setiap koneksi masuk ke port 22 menggunakan iptables.
+
+Cek log firewall di /var/log/syslog atau journalctl -xe.
+
+Gunakan tcpdump untuk sniff paket masuk ke interface eth0.
+
+📡 Bagian 5: Tools Lain & Bonus
+Install nmap dan lakukan scanning ke jaringan 192.168.10.0/24.
+
+Gunakan ip a dan ip r untuk membaca IP dan route, lalu dokumentasikan hasilnya.
+
+Jalankan whois untuk mencari info domain tertentu.
+
+Gunakan ethtool untuk melihat kecepatan koneksi jaringan.
+
+Simulasikan server HTTP sederhana pakai python -m http.server, lalu tes koneksinya.
+
+Gunakan curl untuk akses API atau website, tampilkan header-nya.
+
+Monitor koneksi jaringan secara live pakai iftop atau nload.
+
+Gunakan netplan untuk set IP statis di Ubuntu versi baru.
+
+Simulasikan dua VM dan buat mereka saling ping dengan IP lokal.
+
+Buat skrip bash sederhana yang ngecek koneksi ke beberapa IP dan output status-nya.
